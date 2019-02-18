@@ -17,5 +17,27 @@ public class User {
     static final String DATABASE = "jdbc:postgresql://localhost/local";
     static final String USERNAME = "rackarmattan";
     static final String PASSWORD = "hejhej123";
+    
+    private Connection connect(){
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection(DATABASE, USERNAME, PASSWORD);
+            System.out.println("Connected to the PostgreSQL server successfully.");
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+ 
+        return conn;
+    }
+    
+    public String getUserName()throws SQLException{
+        String userName = "hej";
+        Connection conn = connect();
+        try(PreparedStatement ps = conn.prepareStatement("SELECT * FROM Users");){
+            ps.executeQuery();
+        }
+        return userName;
+    }
+    
 
 }
