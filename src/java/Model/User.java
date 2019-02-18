@@ -5,10 +5,17 @@
  */
 package Model;
 
+import java.sql.*;
+
 /**
  *
  * @author rackarmattan
  */
 public class User {
-    
+
+    //POSTGRESQL DATABASE
+    static final String DATABASE = "jdbc:postgresql://localhost/local";
+    static final String USERNAME = "rackarmattan";
+    static final String PASSWORD = "hejhej123";
+
 }
