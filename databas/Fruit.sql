@@ -1,9 +1,0 @@
-CREATE TABLE Fruits(
-	name VARCHAR(20) NOT NULL,
-	color VARCHAR(20) NOT NULL,
-	kind VARCHAR(20) NOT NULL,
-	origin VARCHAR(30) NOT NULL,
-	PRIMARY KEY(name)
-);
-
-	

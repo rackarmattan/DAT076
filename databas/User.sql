@@ -1,8 +1,0 @@
-CREATE TABLE Users(
-	name VARCHAR(20) NOT NULL,
-	password VARCHAR(20) NOT NULL,
-	email VARCHAR(20) NOT NULL UNIQUE,
-	PRIMARY KEY(name)
-);
-
-	
