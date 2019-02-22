@@ -28,4 +28,10 @@ public class AccountsFacade extends AbstractFacade<Accounts> {
         super(Accounts.class);
     }
     
+    //@NamedQuery(name = "Accounts.findByLogin", query = "SELECT a FROM Accounts a WHERE a.login = :login")
+
+    public Object findByLogin(String login){
+        return em.createNamedQuery("Accounts.finByLogin").setParameter("login", login).getSingleResult();
+    }
+    
 }

@@ -23,7 +23,7 @@ import javax.faces.model.SelectItem;
 @SessionScoped
 public class AccountsController implements Serializable {
 
-    private Accounts current;
+    private Accounts current = new Accounts();
     private DataModel items = null;
     @EJB
     private com.project2.model.AccountsFacade ejbFacade;
@@ -41,17 +41,17 @@ public class AccountsController implements Serializable {
         return current;
     }
     
-    public boolean isRegistered(){
-        return ejbFacade.findAll().contains(current);
-    }
-    
     public String prepareLogin(){
-        if(isRegistered()){
-            Accounts a = ejbFacade.find(current);
-            //compare if a's login and password is what the user has input
+        Object o = ejbFacade.findByLogin(current.getLogin());
+        if(o != null){
+            //User exists, log in user
+            current = (Accounts) o;
+            return "Log in succeeded";
         }
         return "Login";
     }
+    
+    
 
     private AccountsFacade getFacade() {
         return ejbFacade;

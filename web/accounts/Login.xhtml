@@ -17,5 +17,13 @@ and open the template in the editor.
         <h:link outcome="/accounts/List" value="Show All Accounts Items"/>
         <br />
         <h:link outcome="/fruits/List" value="Show All Fruits Items"/>
+
+        <br />
+        <h:form>
+            <h:inputText id="login" value="#{accountsController.current.login}"/>
+            <br />
+            <h:inputSecret id="password" value="#{accountsController.current.password}"/>
+            
+        </h:form>
     </h:body>
 </html>
