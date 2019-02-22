@@ -6,6 +6,7 @@ import com.project2.view.util.PaginationHelper;
 import com.project2.model.AccountsFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -38,6 +39,18 @@ public class AccountsController implements Serializable {
             selectedItemIndex = -1;
         }
         return current;
+    }
+    
+    public boolean isRegistered(){
+        return ejbFacade.findAll().contains(current);
+    }
+    
+    public String prepareLogin(){
+        if(isRegistered()){
+            Accounts a = ejbFacade.find(current);
+            //compare if a's login and password is what the user has input
+        }
+        return "Login";
     }
 
     private AccountsFacade getFacade() {
@@ -78,6 +91,8 @@ public class AccountsController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
+    
+    
 
     public String create() {
         try {

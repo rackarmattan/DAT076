@@ -18,7 +18,7 @@
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_login}" for="login" />
                     <h:inputText id="login" value="#{accountsController.selected.login}" title="#{bundle.CreateAccountsTitle_login}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_login}"/>
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_password}" for="password" />
-                    <h:inputText id="password" value="#{accountsController.selected.password}" title="#{bundle.CreateAccountsTitle_password}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_password}"/>
+                    <h:inputSecret id="password" value="#{accountsController.selected.password}" title="#{bundle.CreateAccountsTitle_password}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_password}"/>
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_email}" for="email" />
                     <h:inputText id="email" value="#{accountsController.selected.email}" title="#{bundle.CreateAccountsTitle_email}" />
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_about}" for="about" />
