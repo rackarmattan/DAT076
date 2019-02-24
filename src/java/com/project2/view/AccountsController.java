@@ -19,6 +19,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+
 @Named("accountsController")
 @SessionScoped
 public class AccountsController implements Serializable {
@@ -33,6 +34,10 @@ public class AccountsController implements Serializable {
     public AccountsController() {
     }
 
+    public Accounts getCurrent(){
+        return current; 
+    }
+        
     public Accounts getSelected() {
         if (current == null) {
             current = new Accounts();
