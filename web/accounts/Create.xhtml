@@ -16,13 +16,13 @@
             <h:form class="dataform">
                 <h:panelGrid>
                     <label for="login"><b>#{bundle.CreateAccountsLabel_login}</b></label>
-                    <h:inputText id="login" value="#{accountsController.selected.login}" title="#{bundle.CreateAccountsTitle_login}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_login}"/>
+                    <h:inputText id="login" value="#{accountsController.current.login}" title="#{bundle.CreateAccountsTitle_login}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_login}"/>
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_password}" for="password" />
-                    <h:inputSecret id="password" value="#{accountsController.selected.password}" title="#{bundle.CreateAccountsTitle_password}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_password}"/>
+                    <h:inputSecret id="password" value="#{accountsController.current.password}" title="#{bundle.CreateAccountsTitle_password}" required="true" requiredMessage="#{bundle.CreateAccountsRequiredMessage_password}"/>
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_email}" for="email" />
-                    <h:inputText id="email" value="#{accountsController.selected.email}" title="#{bundle.CreateAccountsTitle_email}" />
+                    <h:inputText id="email" value="#{accountsController.current.email}" title="#{bundle.CreateAccountsTitle_email}" />
                     <h:outputLabel value="#{bundle.CreateAccountsLabel_about}" for="about" />
-                    <h:inputText id="about" value="#{accountsController.selected.about}" title="#{bundle.CreateAccountsTitle_about}" />
+                    <h:inputText id="about" value="#{accountsController.current.about}" title="#{bundle.CreateAccountsTitle_about}" />
             <div class="container" style="background-color:#f1f1f1">
             <button name="cancel" type="button" class="cancelCreate">Cancel</button>
             <button name="action" type="submit" value="send">Create and login</button>
