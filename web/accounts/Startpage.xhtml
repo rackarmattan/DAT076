@@ -1,16 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title> Title </title>
+        <h:outputStylesheet name="css/startPage.css"/>
+    </h:head>
+    
+    <h:body>
+        <div class="header">
+            You are logged in as 
+             <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
+        </div> 
+        <br />
+
+        
+        <div class="row">
+            <h:link outcome="/fruits/View">
+                <div class="column">
+                    <div class="card">My lists </div>
+                </div>
+            </h:link>
+
+            <h:link outcome="/fruits/View">
+                <div class="column">
+                    <div class="card">View all fruits</div>
+                </div>
+            </h:link>
+        </div>  
+        <br />
+
+        
+        <div class="row">
+            <h:link outcome="/fruits/Create">
+                <div class="column">
+                    <div class="card">Create New Fruits</div>
+                </div>
+            </h:link>
+            
+            <h:link outcome="/fruits/View">
+                <div class="column">
+                    <img src="../resources/images/add-icon.png" width="50" height="30"/>
+                    <div class="card">Settings</div>
+                </div>
+            </h:link>
+        </div>
+        <div>
+        </div>
+        
+     </h:body>
 </html>
+
