@@ -50,8 +50,10 @@ public class AccountsController implements Serializable {
         Object o = ejbFacade.findByLogin(current.getLogin());
         if(o != null){
             //User exists, log in user
-            current = (Accounts) o;
-            return "Log in succeeded";
+            Accounts tmp = (Accounts) o;
+            if(tmp.getPassword().equals(current.getPassword())){
+                return "Log in succeeded";
+            }  
         }
         return "Login";
     }
