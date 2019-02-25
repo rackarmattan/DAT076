@@ -66,7 +66,10 @@ public class AccountsController implements Serializable {
         return "index";
     }
     
-
+    public String prepareCreatePage(){
+        return "Create";
+    }
+    
     private AccountsFacade getFacade() {
         return ejbFacade;
     }
