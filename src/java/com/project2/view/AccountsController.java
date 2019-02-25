@@ -47,12 +47,14 @@ public class AccountsController implements Serializable {
     }
     
     public String prepareLogin(){
-        Object o = ejbFacade.findByLogin(current.getLogin());
-        if(o != null){
-            //User exists, log in user
-            Accounts tmp = (Accounts) o;
+        
+        List l = ejbFacade.findByLogin(current.getLogin());
+        //throw new IllegalStateException("Inloggad!" + l);
+        if(!l.isEmpty()){
+            Accounts tmp = (Accounts)l.get(0);
             if(tmp.getPassword().equals(current.getPassword())){
-                return "Log in succeeded";
+                current = tmp;
+                //throw new IllegalStateException("Inloggad!" + l.toString());
             }  
         }
         return "Login";
