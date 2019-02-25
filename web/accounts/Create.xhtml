@@ -25,7 +25,11 @@
                     <h:inputText id="about" value="#{accountsController.current.about}" title="#{bundle.CreateAccountsTitle_about}" />
             <div class="container" style="background-color:#f1f1f1">
             <button name="cancel" type="button" class="cancelCreate">Cancel</button>
-            <button name="action" type="submit" value="send">Create and login</button>
+            <h:commandButton class="loginAccount" 
+                             value="Login and create" 
+                             type="submit" 
+                             action="#{accountsController.createAndLogin()}">
+            </h:commandButton>
             </div>
                 </h:panelGrid>
                 <br />
