@@ -109,18 +109,17 @@ public class AccountsController implements Serializable {
         return "Create";
     }
     
-    
-
-    public String create() {
+    public String createAndLogin(){
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
-            return prepareCreate();
+            return "Startpage";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
+            return "Create";
         }
     }
+  
 
     public String prepareEdit() {
         current = (Accounts) getItems().getRowData();
