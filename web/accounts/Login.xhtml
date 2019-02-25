@@ -43,7 +43,7 @@ and open the template in the editor.
          <!-- TODO - Make the buttons link to correct pages. -->
         
         <div  name="actionButtons">
-            <button name="action" value="send" type="submit" actionListener="#{accountsController.prepareLogin()}">Login</button>
+            <h:commandButton value="send" type="submit" action="#{accountsController.prepareLogin()}">Login</h:commandButton>
            <button name="action" value="send" type="submit">Create new account</button>
            <h:link outcome="/accounts/Create" value="Fullänk till skapa konto"/>
         </div>
