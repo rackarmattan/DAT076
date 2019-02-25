@@ -61,6 +61,10 @@ public class AccountsController implements Serializable {
         return "Login";
     }
     
+    public String prepareLogout(){
+        current = new Accounts();
+        return "index";
+    }
     
 
     private AccountsFacade getFacade() {
