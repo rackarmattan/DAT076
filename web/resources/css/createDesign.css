@@ -1,0 +1,35 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2019-feb-24, 20:03:07
+    Author     : kevin
+*/
+
+/* Bordered form */
+  
+  body {
+  background-image: url("images/create.jpg");
+}
+
+.cancelCreate {
+  background-color: #f44336;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.dataform{
+    background-color: #f1f1f1;
+    width: 40%;
+    padding: 10px 10px 10px 10px;
+}
+
+.headerText{
+    color: #f1f1f1;
+}

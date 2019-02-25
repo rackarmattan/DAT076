@@ -26,11 +26,10 @@ and open the template in the editor.
 
         
         <div class="container">
-            
-        <h:form>
-                    <div class="imgcontainer">
+        <div class="imgcontainer">
             <img src="../resources/images/genericLogo.png" alt="Avatar" class="avatar" />
-        </div>
+        </div>    
+        <h:form>
             <label for="login"><b>Username</b></label>
             <h:inputText id="login" value="#{accountsController.current.login}"/>
            
@@ -38,11 +37,14 @@ and open the template in the editor.
             <h:inputSecret id="password" 
                            value="#{accountsController.current.password}"/>
             
-        </h:form>
+        </h:form> <!-- TODO - Make the buttons link to correct pages. -->
+        <h:form>
         <div  name="actionButtons">
            <button name="action" value="send" type="submit">Login</button>
            <button name="action" value="send" type="submit">Create new account</button>
+           <h:link outcome="/accounts/Create" value="Fullänk till skapa konto"/>
         </div>
+        </h:form>
         <div class="container" style="background-color:#f1f1f1">
             <button type="button" class="cancelbtn">Cancel</button>
             <span class="psw">Forgot <a href="#">password?</a></span>
