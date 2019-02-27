@@ -45,9 +45,6 @@ public class Accounts implements Serializable {
     private String email;
     @Column(name = "ABOUT")
     private String about;
-    @ManyToMany
-    @JoinTable(name="FRUITS")
-    public Set<Fruits> fruits;
 
     public Accounts() {
     }
