@@ -23,10 +23,13 @@ public class JsfUtil {
         return items;
     }
 
+    // JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
+    //            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+
     public static void addErrorMessage(Exception ex, String defaultMsg) {
         String msg = ex.getLocalizedMessage();
         if (msg != null && msg.length() > 0) {
-            addErrorMessage(msg);
+            addErrorMessage("Account with that login already exists");
         } else {
             addErrorMessage(defaultMsg);
         }

@@ -6,10 +6,13 @@
 package com.project2.model;
 
 import java.io.Serializable;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -42,6 +45,9 @@ public class Accounts implements Serializable {
     private String email;
     @Column(name = "ABOUT")
     private String about;
+    @ManyToMany
+    @JoinTable(name="FRUITS")
+    public Set<Fruits> fruits;
 
     public Accounts() {
     }
