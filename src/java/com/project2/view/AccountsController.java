@@ -8,6 +8,7 @@ import com.project2.model.AccountsFacade;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ResourceBundle;
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -18,7 +19,6 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
-
 
 @Named("accountsController")
 @SessionScoped
@@ -63,7 +63,7 @@ public class AccountsController implements Serializable {
     
     public String prepareLogout(){
         current = new Accounts();
-        return "index";
+        return "home";
     }
     
     public String prepareCreatePage(){

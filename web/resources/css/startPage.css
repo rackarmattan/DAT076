@@ -58,7 +58,7 @@ body {
   margin-bottom: 10px;
 }
 
-.logoutLblPos{
+.logoutButton{
    position:fixed;
    right:10px;
    top:30px;
