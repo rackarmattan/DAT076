@@ -58,3 +58,9 @@ body {
   margin-bottom: 10px;
 }
 
+.logoutLblPos{
+   position:fixed;
+   right:10px;
+   top:30px;
+}
+
