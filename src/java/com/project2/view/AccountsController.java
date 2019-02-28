@@ -30,6 +30,7 @@ public class AccountsController implements Serializable {
     private com.project2.model.AccountsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private AccountsFruitsController afc = new AccountsFruitsController();
 
     public AccountsController() {
     }
@@ -54,6 +55,7 @@ public class AccountsController implements Serializable {
             Accounts tmp = (Accounts)l.get(0);
             if(tmp.getPassword().equals(current.getPassword())){
                 current = tmp;
+                afc.setCurrent(current);
                 return "Startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }  

@@ -5,32 +5,37 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
-    
+
     <h:head>
         <title> Title </title>
         <h:outputStylesheet name="css/startPage.css"/>
 
     </h:head>
-    
+
     <h:body>
         <div class="header">
             You are logged in as 
-             <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
-             <h:form>
+            <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
+            <h:form>
                 <h:commandButton class="logoutButton" 
                                  value="Log out" 
                                  type="submit" 
                                  action="#{accountsController.prepareLogout()}">
                 </h:commandButton>
-             </h:form>
+            </h:form>
         </div> 
         <br />
 
-        
+
         <div class="row">
             <h:link outcome="/fruits/View">
                 <div class="column">
-                    <div class="card">My lists </div>
+                    <div class="card">My lists <!--TODO, Bundle!!!!!!-->
+                        <h:form>
+                            <h:commandLink action="#{accountsFruitsController.displayList}" value="My lists"/>
+                        </h:form>
+                    </div>
+
                 </div>
             </h:link>
 
@@ -42,7 +47,7 @@
         </div>  
         <br />
 
-        
+
         <div class="row">
             <h:link outcome="/fruits/Create">
                 <div class="column">
@@ -51,19 +56,19 @@
                     </div>
                 </div>
             </h:link>
-            
+
             <h:link outcome="/fruits/View">
                 <div class="column">
                     <div class="card">Settings
-                </div>
+                    </div>
                 </div>
             </h:link>
         </div>
         <div>
         </div>
-        
-        
-        
-     </h:body>
+
+
+
+    </h:body>
 </html>
 

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.project2.model;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,6 +26,10 @@ public class AccountsFruitsFacade extends AbstractFacade<AccountsFruits> {
 
     public AccountsFruitsFacade() {
         super(AccountsFruits.class);
+    }
+    
+    public List<AccountsFruits> findByLogin(String login) {
+        return em.createNamedQuery("AccountsFruits.findByLogin", AccountsFruits.class).setParameter("login", login).getResultList();
     }
 
 }

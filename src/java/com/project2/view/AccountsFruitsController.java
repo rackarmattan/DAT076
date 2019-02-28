@@ -33,6 +33,10 @@ public class AccountsFruitsController implements Serializable {
 
     public AccountsFruitsController() {
     }
+    
+    public void setCurrent(Accounts a){
+        current.setAccounts(a);
+    }
 
     public AccountsFruits getCurrent(){
         return current; 
@@ -44,6 +48,10 @@ public class AccountsFruitsController implements Serializable {
             selectedItemIndex = -1;
         }
         return current;
+    }
+    
+    public String displayList(){
+        return "/accountsfruits/List.xhtml?faces-redirect=true";
     }
 
     
