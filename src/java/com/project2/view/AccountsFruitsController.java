@@ -3,12 +3,11 @@ package com.project2.view;
 import com.project2.model.Accounts;
 import com.project2.view.util.JsfUtil;
 import com.project2.view.util.PaginationHelper;
-import com.project2.model.AccountsFacade;
+import com.project2.model.AccountsFruits;
+import com.project2.model.AccountsFruitsFacade;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -20,57 +19,39 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-@Named("accountsController")
-@SessionScoped
-public class AccountsController implements Serializable {
 
-    private Accounts current = new Accounts();
+@Named("accountsFruitsController")
+@SessionScoped
+public class AccountsFruitsController implements Serializable {
+
+    private AccountsFruits current = new AccountsFruits();
     private DataModel items = null;
     @EJB
-    private com.project2.model.AccountsFacade ejbFacade;
+    private com.project2.model.AccountsFruitsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-    public AccountsController() {
+    public AccountsFruitsController() {
     }
 
-    public Accounts getCurrent(){
+    public AccountsFruits getCurrent(){
         return current; 
     }
         
-    public Accounts getSelected() {
+    public AccountsFruits getSelected() {
         if (current == null) {
-            current = new Accounts();
+            current = new AccountsFruits();
             selectedItemIndex = -1;
         }
         return current;
     }
-    
-    public String prepareLogin(){
-        
-        List l = ejbFacade.findByLogin(current.getLogin());
-        //throw new IllegalStateException("Inloggad!" + l);
-        if(!l.isEmpty()){
-            Accounts tmp = (Accounts)l.get(0);
-            if(tmp.getPassword().equals(current.getPassword())){
-                current = tmp;
-                return "Startpage";
-                //throw new IllegalStateException("Inloggad!" + l.toString());
-            }  
-        }
-        return "Login";
-    }
-    
-    public String prepareLogout(){
-        current = new Accounts();
-        return "home";
-    }
+
     
     public String prepareCreatePage(){
         return "Create";
     }
     
-    private AccountsFacade getFacade() {
+    private AccountsFruitsFacade getFacade() {
         return ejbFacade;
     }
 
@@ -98,31 +79,19 @@ public class AccountsController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Accounts) getItems().getRowData();
+        current = (AccountsFruits) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Accounts();
+        current = new AccountsFruits();
         selectedItemIndex = -1;
         return "Create";
     }
-    
-    public String createAndLogin(){
-        try {
-            getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
-            return "Startpage.xhtml?faces-redirect=true";
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return "Create.xhtml?faces-redirect=true";
-        }
-    }
-  
 
     public String prepareEdit() {
-        current = (Accounts) getItems().getRowData();
+        current = (AccountsFruits) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
@@ -139,7 +108,7 @@ public class AccountsController implements Serializable {
     }
 
     public String destroy() {
-        current = (Accounts) getItems().getRowData();
+        current = (AccountsFruits) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();
@@ -219,7 +188,7 @@ public class AccountsController implements Serializable {
         return JsfUtil.getSelectItems(ejbFacade.findAll(), true);
     }
 
-    public Accounts getAccounts(java.lang.String id) {
+    public AccountsFruits getAccounts(java.lang.String id) {
         return ejbFacade.find(id);
     }
 
