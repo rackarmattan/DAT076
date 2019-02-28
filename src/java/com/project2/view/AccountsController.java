@@ -113,10 +113,10 @@ public class AccountsController implements Serializable {
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
-            return "Startpage";
+            return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return "Create";
+            return "Create.xhtml?faces-redirect=true";
         }
     }
   
