@@ -55,7 +55,8 @@ public class AccountsController implements Serializable {
             Accounts tmp = (Accounts)l.get(0);
             if(tmp.getPassword().equals(current.getPassword())){
                 current = tmp;
-                afc.setCurrent(current);
+                afc.setCurrentAccounts(current);
+                System.out.println("current i accountscontroller "+current);
                 return "Startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }  

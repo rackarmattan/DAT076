@@ -5,8 +5,11 @@ import com.project2.view.util.JsfUtil;
 import com.project2.view.util.PaginationHelper;
 import com.project2.model.AccountsFruits;
 import com.project2.model.AccountsFruitsFacade;
+import com.project2.model.Fruits;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -34,7 +37,7 @@ public class AccountsFruitsController implements Serializable {
     public AccountsFruitsController() {
     }
     
-    public void setCurrent(Accounts a){
+    public void setCurrentAccounts(Accounts a){
         current.setAccounts(a);
     }
 
@@ -52,6 +55,20 @@ public class AccountsFruitsController implements Serializable {
     
     public String displayList(){
         return "/accountsfruits/List.xhtml?faces-redirect=true";
+    }
+    
+    public List<Fruits> getFruitsList(){
+        List<Fruits> list = new ArrayList<>();
+        list.add(new Fruits("apple", "green"));
+        List<AccountsFruits> tpm = new ArrayList<>();
+        System.out.println(current.getAccounts());
+        //tpm = ejbFacade.findByLogin();
+        //System.out.println(tpm);
+        return list;
+    }
+    
+    public List<Fruits> findAllFruits(){
+        return null;
     }
 
     

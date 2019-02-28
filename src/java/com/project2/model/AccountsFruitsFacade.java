@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package com.project2.model;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -21,6 +22,7 @@ public class AccountsFruitsFacade extends AbstractFacade<AccountsFruits> {
 
     @Override
     protected EntityManager getEntityManager() {
+        findByLogin("mattan");
         return em;
     }
 
@@ -29,7 +31,10 @@ public class AccountsFruitsFacade extends AbstractFacade<AccountsFruits> {
     }
     
     public List<AccountsFruits> findByLogin(String login) {
-        return em.createNamedQuery("AccountsFruits.findByLogin", AccountsFruits.class).setParameter("login", login).getResultList();
+        List<AccountsFruits> list = new ArrayList<>();
+        list = em.createNamedQuery("AccountsFruits.findByLogin", AccountsFruits.class).setParameter("login", login).getResultList();
+        System.out.println(list);
+        return list;
     }
 
 }
