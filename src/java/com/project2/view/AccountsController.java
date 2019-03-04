@@ -25,6 +25,7 @@ import javax.faces.model.SelectItem;
 public class AccountsController implements Serializable {
 
     private Accounts current = new Accounts();
+    private String tmpPassword;
     private DataModel items = null;
     @EJB
     private com.project2.model.AccountsFacade ejbFacade;
@@ -35,10 +36,18 @@ public class AccountsController implements Serializable {
     public AccountsController() {
     }
 
-    public Accounts getCurrent(){
-        return current; 
+    public void setPassword(String tmp) {
+        tmpPassword = tmp;
     }
-        
+
+    public String getTmpPassword() {
+        return tmpPassword;
+    }
+
+    public Accounts getCurrent() {
+        return current;
+    }
+
     public Accounts getSelected() {
         if (current == null) {
             current = new Accounts();
@@ -46,33 +55,44 @@ public class AccountsController implements Serializable {
         }
         return current;
     }
-    
-    public String prepareLogin(){
-        
+
+    public String prepareLogin() {
+
         List l = ejbFacade.findByLogin(current.getLogin());
         //throw new IllegalStateException("Inloggad!" + l);
-        if(!l.isEmpty()){
-            Accounts tmp = (Accounts)l.get(0);
-            if(tmp.getPassword().equals(current.getPassword())){
+        if (!l.isEmpty()) {
+            Accounts tmp = (Accounts) l.get(0);
+            if (tmp.getPassword().equals(current.getPassword())) {
                 current = tmp;
                 afc.setCurrentAccounts(current);
-                System.out.println("current i accountscontroller "+current);
+                System.out.println("current i accountscontroller " + current);
                 return "Startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
-            }  
+            }
         }
         return "Login";
     }
-    
-    public String prepareLogout(){
+
+    public String resetPassword() {
+        if (tmpPassword.length() < 3) {
+            JsfUtil.addErrorMessage("Pssword must be longer than 3");
+            return "ResetPas";
+        } else {
+            current.setPassword(tmpPassword);
+            JsfUtil.addSuccessMessage("Password changed");
+            return "ResetPas";
+        }
+    }
+
+    public String prepareLogout() {
         current = new Accounts();
         return "home";
     }
-    
-    public String prepareCreatePage(){
+
+    public String prepareCreatePage() {
         return "Create";
     }
-    
+
     private AccountsFacade getFacade() {
         return ejbFacade;
     }
@@ -111,8 +131,8 @@ public class AccountsController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-    
-    public String createAndLogin(){
+
+    public String createAndLogin() {
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
@@ -122,7 +142,6 @@ public class AccountsController implements Serializable {
             return "Create.xhtml?faces-redirect=true";
         }
     }
-  
 
     public String prepareEdit() {
         current = (Accounts) getItems().getRowData();
