@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-                xmlns:p="http://primefaces.org/ui">
-                
-<h:form>
-    <h:panelGrid columns="2" cellpadding="5">
-        <h:outputText value="Basic: " />
-        <p:password id="nonFeedback" value="Test" />
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
 
-    </h:panelGrid>
-</h:form>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputStylesheet library = "css" name="resetPas.css"/>
+        </ui:define>
+        <ui:define name="body">
+            <h:form>
+                <p:separator />
+                <p:messages id="messages" showDetail="true" autoUpdate="true" />
+                <h:panelGrid columns="2" id="matchGrid" cellpadding="5">                   
+                    <h:outputLabel for="pwd1" value="Password 1: *" />
+                    <p:password id="pwd1" value="Testis2" match="pwd2" label="Password 1" required="true" />
 
+                    <h:outputLabel for="pwd2" value="Password 2: *" />
+                    <p:password id="pwd2" value="Testis" label="Password 2" required="true" />
+                </h:panelGrid>
+
+                <p:commandButton styleClass ="save" update="matchGrid" value="Save" />   
+            </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
