@@ -32,12 +32,39 @@ public class AccountsController implements Serializable {
     private PaginationHelper pagination;
     private int selectedItemIndex;
     private AccountsFruitsController afc = new AccountsFruitsController();
+    private String tmpLogin;
+
+    public void setTmpLogin(String tmpLogin) {
+        this.tmpLogin = tmpLogin;
+    }
+
+    public String getTmpLogin() {
+        return tmpLogin;
+    }
 
     public AccountsController() {
     }
 
-    public void setPassword(String tmp) {
+    public void setTmpPassword(String tmp) {
         tmpPassword = tmp;
+        System.out.print("Password reset sucess: " + tmpPassword);
+    }
+    
+    public void checkPasswordChange() {
+        //Try to get a user by the entered name.
+        List l = ejbFacade.findByLogin(tmpLogin);
+
+        //Checks if the user exists. 
+        if (!l.isEmpty()) {
+            Accounts tmp = (Accounts) l.get(0);
+            tmp.setPassword(tmpPassword);
+            getFacade().edit(tmp); //Important row, needed for updating the database. 
+            JsfUtil.addSuccessMessage("Password changed for: " + tmpLogin);
+        }
+        //Not a vaild name - send error msg. 
+        else{    
+            JsfUtil.addErrorMessage("Invaild user name, please try again.");
+        }
     }
 
     public String getTmpPassword() {
