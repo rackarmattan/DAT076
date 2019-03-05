@@ -25,7 +25,11 @@
                     <p:password id="pwd2" value="Testis" label="Password 2" required="true" />
                 </h:panelGrid>
 
-                <p:commandButton styleClass ="save" update="matchGrid" value="Save" />   
+                <p:commandButton styleClass ="save" update="matchGrid" value="Save" />  
+            </h:form>
+            <h:form>
+                <!-- Här blir det dumt när vi ska redirecta tillbaka, går inte att logga in igen då. -->
+            <p:commandButton id="cancelbutt" ajax="false" value="Cancel" action="#{accountsController.prepareLogout()}" />
             </h:form>
         </ui:define>
     </ui:composition>
