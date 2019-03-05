@@ -12,12 +12,7 @@
             <h:outputStylesheet library = "css" name="resetPas.css"/> 
         </ui:define>
         <ui:define name="body">
-            <h:form>
-
-                <p:spacer height="10" />
-
-                <p:separator />
-
+            <h:form styleClass = "formis">
                 <p:messages id="messages" showDetail="true" autoUpdate="true" />
                 <h2>Welcome to password reset</h2>
                 <h4>The password must be of at least 3 characters or more.</h4>
@@ -31,11 +26,13 @@
                     <h:outputLabel for="pwd2" value="Repeat new password" />
                     <p:password id="pwd2" value="#{accountsController.tmpPassword}" label="Password 2" required="true" />
                 </h:panelGrid>
-                <p:commandButton styleClass="save" update="matchGrid" value="Reset Password" action="#{accountsController.checkPasswordChange()}" />    
+                <p:commandButton styleClass="reset" update="matchGrid" value="Reset Password" action="#{accountsController.checkPasswordChange}" />    
             </h:form>
             <h:form>
                 <!-- Här blir det dumt när vi ska redirecta tillbaka, går inte att logga in igen då. -->
-            <p:commandButton id="cancelbutt" ajax="false" value="Cancel" action="#{accountsController.prepareLogout()}" />
+                <div styleClass="buttonholder">
+              <p:commandButton styleClass="cancelbtn" ajax="false" value="Cancel" action="#{accountsController.prepareLogout}" />
+              </div>
             </h:form>
         </ui:define>
     </ui:composition>

@@ -49,7 +49,7 @@ public class AccountsController implements Serializable {
         tmpPassword = tmp;
         System.out.print("Password reset sucess: " + tmpPassword);
     }
-    
+
     public void checkPasswordChange() {
         //Try to get a user by the entered name.
         List l = ejbFacade.findByLogin(tmpLogin);
@@ -60,9 +60,8 @@ public class AccountsController implements Serializable {
             tmp.setPassword(tmpPassword);
             getFacade().edit(tmp); //Important row, needed for updating the database. 
             JsfUtil.addSuccessMessage("Password changed for: " + tmpLogin);
-        }
-        //Not a vaild name - send error msg. 
-        else{    
+        } //Not a vaild name - send error msg. 
+        else {
             JsfUtil.addErrorMessage("Invaild user name, please try again.");
         }
     }
