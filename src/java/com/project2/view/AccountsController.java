@@ -28,10 +28,11 @@ public class AccountsController implements Serializable {
     private String tmpPassword;
     private DataModel items = null;
     @EJB
-    private com.project2.model.AccountsFacade ejbFacade;
+    private AccountsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
     private String tmpLogin;
+    private AccountFruitListController tmp = new AccountFruitListController();
 
     public void setTmpLogin(String tmpLogin) {
         this.tmpLogin = tmpLogin;
@@ -160,6 +161,7 @@ public class AccountsController implements Serializable {
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
+            tmp.setCurrent(current);
             return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

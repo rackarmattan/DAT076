@@ -38,6 +38,8 @@ public class Fruits implements Serializable {
     @Basic(optional = false)
     @Column(name = "COLOR")
     private String color;
+    @ManyToMany(mappedBy="fruits")
+    public Set<Accounts> accounts;
 
     public Fruits() {
     }

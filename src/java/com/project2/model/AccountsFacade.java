@@ -7,6 +7,7 @@ package com.project2.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.EJBException;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -34,5 +35,14 @@ public class AccountsFacade extends AbstractFacade<Accounts> {
     //@NamedQuery(name = "Accounts.findByLogin", query = "SELECT a FROM Accounts a WHERE a.login = :login")
     public List<Accounts> findByLogin(String login) {
         return em.createNamedQuery("Accounts.findByLogin", Accounts.class).setParameter("login", login).getResultList();
+    }
+    
+    public Set<Fruits> findAccountFruits(String login){
+        Accounts ac = em.find(Accounts.class, login);
+        if(ac != null){
+            System.out.println("Inne i if-sats, ac ej null");
+            return ac.getFruits();
+        }
+        return null;
     }
 }
