@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -13,11 +13,10 @@
     </h:head>
 
     <h:body>
-        <!-- Moving /UI down above /h:body semi works, but how to do it properly? 
-        <ui:composition>
+         
             <ui:include src ="../template.xhtml"></ui:include>
-       </ui:composition>
-      -->
+       
+      
         <div class="header">
             You are logged in as 
             <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
@@ -73,5 +72,5 @@
         </div>
  
     </h:body>
-</html>
+    </ui:composition>
 

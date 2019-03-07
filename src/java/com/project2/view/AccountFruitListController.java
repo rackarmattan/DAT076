@@ -42,6 +42,7 @@ public class AccountFruitListController implements Serializable {
     
     public void showFruitList(){
         Set<Fruits> tmp = ejbFacade.findAccountFruits(" ");
+        System.out.println("Testar setter av current: " +current.getLogin());
         
         System.out.println(tmp);
     }

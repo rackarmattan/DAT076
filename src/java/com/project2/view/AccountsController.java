@@ -19,6 +19,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.inject.Inject;
 
 @Named("accountsController")
 @SessionScoped
@@ -32,7 +33,8 @@ public class AccountsController implements Serializable {
     private PaginationHelper pagination;
     private int selectedItemIndex;
     private String tmpLogin;
-    private AccountFruitListController tmp = new AccountFruitListController();
+    @Inject
+    private AccountFruitListController afc;
 
     public void setTmpLogin(String tmpLogin) {
         this.tmpLogin = tmpLogin;
@@ -90,6 +92,7 @@ public class AccountsController implements Serializable {
             Accounts tmp = (Accounts) l.get(0);
             if (tmp.getPassword().equals(current.getPassword())) {
                 current = tmp;
+                afc.setCurrent(current);
                 System.out.println("current i accountscontroller " + current);
                 return "Startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
@@ -161,7 +164,7 @@ public class AccountsController implements Serializable {
         try {
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
-            tmp.setCurrent(current);
+            afc.setCurrent(current);
             return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
