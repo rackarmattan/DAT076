@@ -5,20 +5,19 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html template="../template.xhtml" xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
     <h:head>
         <title>Login</title>
-       <!-- <h:outputStylesheet name="css/jsfcrud.css"/> -->
-     
-       <h:outputStylesheet library = "css" name="LoginDesign.css"/>
-       
+        <!-- <h:outputStylesheet name="css/jsfcrud.css"/> -->
+        <h:outputStylesheet library = "css" name="LoginDesign.css"/>
     </h:head>
-    
-    <h:body>
+                      <ui:include src ="../template.xhtml"></ui:include>
+    <h:body>    
         Hello from Mattan
         <br />
         <h:link outcome="/accounts/List" value="Show All Accounts Items"/>
@@ -28,35 +27,35 @@ and open the template in the editor.
         <br />
 
         <div class="container">
-        <div class="imgcontainer">
-            <img src="../resources/images/genericLogo.png" alt="Avatar" class="avatar" />
-        </div>    
-        <h:form styleClass = "formis">
-            <label for="login"><b>Username</b></label>
-            <h:inputText id="login" value="#{accountsController.current.login}"/>
-           
-            <label for="password"><b>Password</b></label>
-            <h:inputSecret id="password" 
-                           value="#{accountsController.current.password}"/>
-        
-        <div  name="actionButtons">
-            <h:commandButton class="loginAccount" 
-                             value="Login" 
-                             type="submit" 
-                             action="#{accountsController.prepareLogin()}">
-            </h:commandButton>
-            <h:commandButton class="loginAccount" 
-                             value="Create account" 
-                             type="submit" 
-                             action="#{accountsController.prepareCreate()}">
-            </h:commandButton>
-        </div>
-        </h:form>
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
-        </div>
-            
+            <div class="imgcontainer">
+                <img src="../resources/images/genericLogo.png" alt="Avatar" class="avatar" />
+            </div>    
+            <h:form styleClass = "formis">
+                <label for="login"><b>Username</b></label>
+                <h:inputText id="login" value="#{accountsController.current.login}"/>
+
+                <label for="password"><b>Password</b></label>
+                <h:inputSecret id="password" 
+                               value="#{accountsController.current.password}"/>
+
+                <div  name="actionButtons">
+                    <h:commandButton class="loginAccount" 
+                                     value="Login" 
+                                     type="submit" 
+                                     action="#{accountsController.prepareLogin()}">
+                    </h:commandButton>
+                    <h:commandButton class="loginAccount" 
+                                     value="Create account" 
+                                     type="submit" 
+                                     action="#{accountsController.prepareCreate()}">
+                    </h:commandButton>
+                </div>
+            </h:form>
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
+            </div>
+
         </div>    
     </h:body>
-    </html>
+</ui:composition> 
