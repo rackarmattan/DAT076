@@ -6,6 +6,7 @@
 package com.project2.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -57,6 +58,15 @@ public class Accounts implements Serializable {
     
     public void setFruits(Set<Fruits> fruits){
         this.fruits = fruits;
+    }
+    
+    public boolean addFruit(Fruits fruit){
+        if(fruits==null)fruits = new HashSet<Fruits>();
+        if(fruits.contains(fruit)){
+            return false;
+        }
+        fruits.add(fruit);
+        return true;
     }
 
     public Accounts(String login) {

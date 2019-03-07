@@ -1,5 +1,7 @@
 package com.project2.view;
 
+import com.project2.model.Accounts;
+import com.project2.model.CurrentAccountManager;
 import com.project2.model.Fruits;
 import com.project2.view.util.JsfUtil;
 import com.project2.view.util.PaginationHelper;
@@ -22,6 +24,7 @@ import javax.faces.model.SelectItem;
 @SessionScoped
 public class FruitsController implements Serializable {
 
+    private CurrentAccountManager currentAccount = CurrentAccountManager.getInstance();
     private Fruits current;
     private DataModel items = null;
     @EJB
@@ -77,6 +80,19 @@ public class FruitsController implements Serializable {
         current = new Fruits();
         selectedItemIndex = -1;
         return "Create";
+    }
+
+    public void markAsFavourite() {
+        if (getCurrent().addFruit(current)) {
+            JsfUtil.addSuccessMessage("Fruit added to my favorites");
+        } else {
+            JsfUtil.addErrorMessage("This fruit is already in your list");
+
+        }
+    }
+
+    public Accounts getCurrent() {
+        return currentAccount.getCurrentAccount();
     }
 
     public String create() {
