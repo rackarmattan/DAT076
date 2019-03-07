@@ -4,10 +4,17 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-        <h1>
-            <ui:insert name="title">Default Title text text </ui:insert>
-        </h1>
-        <p>
-            <ui:insert name="body">Default Body text text </ui:insert>
-        </p>
+    <title>TODO supply a title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <h:outputStylesheet name="css/template.css"/>
+
+    <body>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <!--<h:button rendered="#{e}" ></h:button>-->
+        </div>
+    </body>
 </html>
