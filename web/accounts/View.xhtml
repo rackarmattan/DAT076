@@ -5,39 +5,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition>
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ViewAccountsTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputText value="#{bundle.ViewAccountsLabel_login}"/>
-                    <h:outputText value="#{accountsController.selected.login}" title="#{bundle.ViewAccountsTitle_login}"/>
-                    <h:outputText value="#{bundle.ViewAccountsLabel_password}"/>
-                    <h:outputText value="#{accountsController.selected.password}" title="#{bundle.ViewAccountsTitle_password}"/>
-                    <h:outputText value="#{bundle.ViewAccountsLabel_email}"/>
-                    <h:outputText value="#{accountsController.selected.email}" title="#{bundle.ViewAccountsTitle_email}"/>
-                    <h:outputText value="#{bundle.ViewAccountsLabel_about}"/>
-                    <h:outputText value="#{accountsController.selected.about}" title="#{bundle.ViewAccountsTitle_about}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{accountsController.destroyAndView}" value="#{bundle.ViewAccountsDestroyLink}"/>
-                <br />
-                <br />
-                <h:link outcome="Edit" value="#{bundle.ViewAccountsEditLink}"/>
-                <br />
-                <h:commandLink action="#{accountsController.prepareCreate}" value="#{bundle.ViewAccountsCreateLink}" />
-                <br />
-                <h:commandLink action="#{accountsController.prepareList}" value="#{bundle.ViewAccountsShowAllLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ViewAccountsIndexLink}"/>
+     <h:head>
+        <title> Title </title>
+        <h:outputStylesheet name="css/accountDetails.css"/>
 
-            </h:form>
-        </ui:define>
-    </ui:composition>
+    </h:head>
+    
+    <body>
+     
+        <ui:include src ="../template.xhtml"></ui:include>
+        <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
+    </body>
 </html>
