@@ -4,6 +4,7 @@ import com.project2.model.Accounts;
 import com.project2.view.util.JsfUtil;
 import com.project2.view.util.PaginationHelper;
 import com.project2.model.AccountsFacade;
+import com.project2.model.CurrentAccountManager;
 
 import java.io.Serializable;
 import java.util.List;
@@ -25,7 +26,7 @@ import javax.inject.Inject;
 @SessionScoped
 public class AccountsController implements Serializable {
 
-    private Accounts current = new Accounts();
+    private CurrentAccountManager current = CurrentAccountManager.getInstance();
     private String tmpPassword;
     private DataModel items = null;
     @EJB
@@ -36,6 +37,10 @@ public class AccountsController implements Serializable {
     @Inject
     private AccountFruitListController afc;
 
+  
+    public AccountsController() {
+    }
+    
     public void setTmpLogin(String tmpLogin) {
         this.tmpLogin = tmpLogin;
     }
@@ -44,8 +49,6 @@ public class AccountsController implements Serializable {
         return tmpLogin;
     }
 
-    public AccountsController() {
-    }
 
     public void setTmpPassword(String tmp) {
         tmpPassword = tmp;
@@ -73,27 +76,28 @@ public class AccountsController implements Serializable {
     }
 
     public Accounts getCurrent() {
-        return current;
+        return current.getCurrentAccount();
+    }
+    
+    public void setCurrent(Accounts account){
+        current.setCurrentAccount(account);
     }
 
     public Accounts getSelected() {
-        if (current == null) {
-            current = new Accounts();
-            selectedItemIndex = -1;
-        }
-        return current;
+
+        return current.getCurrentAccount();
     }
 
     public String prepareLogin() {
 
-        List l = ejbFacade.findByLogin(current.getLogin());
+        List l = ejbFacade.findByLogin(getCurrent().getLogin());
         //throw new IllegalStateException("Inloggad!" + l);
         if (!l.isEmpty()) {
             Accounts tmp = (Accounts) l.get(0);
-            if (tmp.getPassword().equals(current.getPassword())) {
-                current = tmp;
-                afc.setCurrent(current);
-                System.out.println("current i accountscontroller " + current);
+            if (tmp.getPassword().equals(getCurrent().getPassword())) {
+                current.setCurrentAccount(tmp);
+                afc.setCurrent(getCurrent());
+                System.out.println("current i accountscontroller " + getCurrent());
                 return "Startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }
@@ -106,14 +110,14 @@ public class AccountsController implements Serializable {
             JsfUtil.addErrorMessage("Pssword must be longer than 3");
             return "ResetPas";
         } else {
-            current.setPassword(tmpPassword);
+            getCurrent().setPassword(tmpPassword);
             JsfUtil.addSuccessMessage("Password changed");
             return "ResetPas";
         }
     }
 
     public String prepareLogout() {
-        current = new Accounts();
+        //current = new Accounts();
         return "home";
     }
 
@@ -149,29 +153,29 @@ public class AccountsController implements Serializable {
     }
 
     public String prepareView() {
-        current = (Accounts) getItems().getRowData();
+        current.setCurrentAccount((Accounts) getItems().getRowData());
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "View";
     }
 
     public String prepareCreate() {
-        current = new Accounts();
+        current.setCurrentAccount(new Accounts());
         selectedItemIndex = -1;
         return "Create";
     }
 
     public String createAndLogin() {
         try {
-            getFacade().create(current);
+            getFacade().create(getCurrent());
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
-            afc.setCurrent(current);
+            afc.setCurrent(getCurrent());
             return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return "Create.xhtml?faces-redirect=true";
         }
     }
-
+/*
     public String prepareEdit() {
         current = (Accounts) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -233,7 +237,7 @@ public class AccountsController implements Serializable {
         if (selectedItemIndex >= 0) {
             current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
-    }
+    }*/
 
     public DataModel getItems() {
         if (items == null) {

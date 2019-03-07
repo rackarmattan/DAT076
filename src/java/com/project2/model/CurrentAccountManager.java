@@ -11,10 +11,10 @@ package com.project2.model;
  */
 public class CurrentAccountManager {
     private static CurrentAccountManager currentAccounts = null;
-    private Accounts currentAccount;
+    private Accounts account;
     
     private CurrentAccountManager(){
-        this.currentAccount = new Accounts();
+        this.account = new Accounts();
     }
     
     public static CurrentAccountManager getInstance(){
@@ -24,10 +24,10 @@ public class CurrentAccountManager {
     }
     
     public void setCurrentAccount(Accounts account){
-        this.currentAccount = account;
+        this.account = account;
     }
     
     public Accounts getCurrentAccount(){
-        return currentAccount;
+        return account;
     }
 }
