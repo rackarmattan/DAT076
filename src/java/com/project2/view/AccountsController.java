@@ -27,53 +27,16 @@ import javax.inject.Inject;
 public class AccountsController implements Serializable {
 
     private CurrentAccountManager current = CurrentAccountManager.getInstance();
-    private String tmpPassword;
     private DataModel items = null;
     @EJB
     private AccountsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-    private String tmpLogin;
-    @Inject
-    private AccountFruitListController afc;
 
   
     public AccountsController() {
     }
-    
-    public void setTmpLogin(String tmpLogin) {
-        this.tmpLogin = tmpLogin;
-    }
-
-    public String getTmpLogin() {
-        return tmpLogin;
-    }
-
-
-    public void setTmpPassword(String tmp) {
-        tmpPassword = tmp;
-        System.out.print("Password reset sucess: " + tmpPassword);
-    }
-
-    public void checkPasswordChange() {
-        //Try to get a user by the entered name.
-        List l = ejbFacade.findByLogin(tmpLogin);
-
-        //Checks if the user exists. 
-        if (!l.isEmpty()) {
-            Accounts tmp = (Accounts) l.get(0);
-            tmp.setPassword(tmpPassword);
-            getFacade().edit(tmp); //Important row, needed for updating the database. 
-            JsfUtil.addSuccessMessage("Password changed for: " + tmpLogin);
-        } //Not a vaild name - send error msg. 
-        else {
-            JsfUtil.addErrorMessage("Invaild user name, please try again.");
-        }
-    }
-
-    public String getTmpPassword() {
-        return tmpPassword;
-    }
+ 
 
     public Accounts getCurrent() {
         return current.getCurrentAccount();
@@ -96,24 +59,12 @@ public class AccountsController implements Serializable {
             Accounts tmp = (Accounts) l.get(0);
             if (tmp.getPassword().equals(getCurrent().getPassword())) {
                 current.setCurrentAccount(tmp);
-                afc.setCurrent(getCurrent());
                 System.out.println("current i accountscontroller " + getCurrent());
                 return "Startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }
         }
         return "Login";
-    }
-
-    public String resetPassword() {
-        if (tmpPassword.length() < 3) {
-            JsfUtil.addErrorMessage("Pssword must be longer than 3");
-            return "ResetPas";
-        } else {
-            getCurrent().setPassword(tmpPassword);
-            JsfUtil.addSuccessMessage("Password changed");
-            return "ResetPas";
-        }
     }
 
     public String prepareLogout() {
@@ -168,7 +119,6 @@ public class AccountsController implements Serializable {
         try {
             getFacade().create(getCurrent());
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
-            afc.setCurrent(getCurrent());
             return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

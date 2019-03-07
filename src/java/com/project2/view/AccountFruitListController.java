@@ -7,6 +7,7 @@ package com.project2.view;
 
 import com.project2.model.Accounts;
 import com.project2.model.AccountsFacade;
+import com.project2.model.CurrentAccountManager;
 import com.project2.model.Fruits;
 import com.project2.view.util.PaginationHelper;
 import java.io.Serializable;
@@ -26,23 +27,22 @@ import javax.inject.Named;
 @SessionScoped
 public class AccountFruitListController implements Serializable {
 
-    private Accounts current;
+    private CurrentAccountManager current = CurrentAccountManager.getInstance();
     @EJB
     private AccountsFacade ejbFacade;
     private DataModel items = null;
 
     public Accounts getCurrent() {
-        return current;
+        return current.getCurrentAccount();
     }
 
     public void setCurrent(Accounts account) {
-        current = account;
-        System.out.println("Testar setter av current: " +current.getLogin());
+        current.setCurrentAccount(account);
     }
     
     public void showFruitList(){
         Set<Fruits> tmp = ejbFacade.findAccountFruits(" ");
-        System.out.println("Testar setter av current: " +current.getLogin());
+        System.out.println("Testar setter av current: " +getCurrent().getLogin());
         
         System.out.println(tmp);
     }
