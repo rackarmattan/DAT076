@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-    <ui:composition template="/template.xhtml">
+        
+     <h:head>
+         <h:outputStylesheet library = "css" name="jsfcrud.css"/>
+    </h:head>
+    <!--
         <ui:define name="title">
             <h:outputText value="#{bundle.ListFruitsTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
+        </ui:define>-->
+    
+        <h:body>
             <h:form styleClass="jsfcrud_list_form">
                 <h:panelGroup id="messagePanel" layout="block">
                     <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -41,6 +46,8 @@
                             <h:commandLink action="#{fruitsController.prepareEdit}" value="#{bundle.ListFruitsEditLink}"/>
                             <h:outputText value=" "/>
                             <h:commandLink action="#{fruitsController.destroy}" value="#{bundle.ListFruitsDestroyLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{fruitsController.markAsFavourite()}" value="Favorite"/>
                         </h:column>
                     </h:dataTable>
                 </h:panelGroup>
@@ -50,7 +57,6 @@
                 <br />
                 <h:link outcome="/index" value="#{bundle.ListFruitsIndexLink}"/>
             </h:form>
-        </ui:define>
+        </h:body>
     </ui:composition>
 
-</html>

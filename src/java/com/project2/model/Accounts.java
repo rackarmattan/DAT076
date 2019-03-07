@@ -6,8 +6,10 @@
 package com.project2.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -31,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Accounts.findByPassword", query = "SELECT a FROM Accounts a WHERE a.password = :password")
     , @NamedQuery(name = "Accounts.findByEmail", query = "SELECT a FROM Accounts a WHERE a.email = :email")
     , @NamedQuery(name = "Accounts.findByAbout", query = "SELECT a FROM Accounts a WHERE a.about = :about")})
+
 public class Accounts implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,9 +48,9 @@ public class Accounts implements Serializable {
     private String email;
     @Column(name = "ABOUT")
     private String about;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name="FRUITS")
-    private Set<Fruits> fruits;
+    private Set<Fruits> fruits = new HashSet<>();
 
     public Accounts() {
     }
@@ -57,6 +60,24 @@ public class Accounts implements Serializable {
     
     public void setFruits(Set<Fruits> fruits){
         this.fruits = fruits;
+    }
+    
+    public boolean addFruit(Fruits fruit){
+        if(fruits.contains(fruit)){
+            return false;
+        }
+        fruits.add(fruit);
+        fruit.addAccount(this);
+        return true;
+    }
+    
+    public boolean removeFruit(Fruits fruit){
+        if(fruits.contains(fruit)){
+            fruits.remove(fruit);
+            fruit.removeAccount(this);
+            return true;
+        }
+        return false;
     }
 
     public Accounts(String login) {
