@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
 
     <h:head>
         <title> Title </title>
@@ -13,13 +13,12 @@
     </h:head>
 
     <h:body>
-         
-            <ui:include src ="../template.xhtml"></ui:include>
-       
-      
+
+        <ui:include src ="../template.xhtml"></ui:include>
+        You are logged in as 
+        <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
+
         <div class="header">
-            You are logged in as 
-            <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
             <h:form>
                 <h:commandButton class="logoutButton" 
                                  value="Log out" 
@@ -70,7 +69,7 @@
         </div>
         <div>
         </div>
- 
+
     </h:body>
-    </ui:composition>
+</ui:composition>
 
