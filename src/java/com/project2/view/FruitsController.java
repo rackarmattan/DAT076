@@ -83,6 +83,8 @@ public class FruitsController implements Serializable {
     }
 
     public void markAsFavourite() {
+        current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
+        System.out.println("INNE I MARK, CURRENT: "+current);
         if (getCurrent().addFruit(current)) {
             JsfUtil.addSuccessMessage("Fruit added to my favorites");
         } else {

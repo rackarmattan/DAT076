@@ -6,8 +6,10 @@
 package com.project2.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -38,8 +40,9 @@ public class Fruits implements Serializable {
     @Basic(optional = false)
     @Column(name = "COLOR")
     private String color;
-    @ManyToMany(mappedBy="fruits")
-    public Set<Accounts> accounts;
+    @ManyToMany(mappedBy="fruits", 
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    public Set<Accounts> accounts = new HashSet<Accounts>();
 
     public Fruits() {
     }
@@ -47,10 +50,36 @@ public class Fruits implements Serializable {
     public Fruits(String fname) {
         this.fname = fname;
     }
-
+    
     public Fruits(String fname, String color) {
         this.fname = fname;
         this.color = color;
+    }
+
+    public Set getAccounts(){
+        return accounts;
+    }
+    
+    public void setAccounts(Set<Accounts> accounts){
+        this.accounts = accounts;
+    }
+    
+    public boolean addAccount(Accounts account){
+        if(!accounts.contains(account)){
+            return false;
+        }
+        accounts.add(account);
+        account.addFruit(this);
+        return true;
+    }
+    
+    public boolean removeAccount(Accounts account){
+        if(accounts.contains(account)){
+            accounts.remove(account);
+            account.removeFruit(this);
+            return true;
+        }
+        return false;
     }
 
     public String getFname() {
