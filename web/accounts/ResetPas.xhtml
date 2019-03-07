@@ -18,15 +18,15 @@
                 <h4>The password must be of at least 3 characters or more.</h4>
                 <h:panelGrid columns="2" id="matchGrid" cellpadding="5"> 
                     <h:outputLabel value="Enter your username" for="about" />
-                    <h:inputText id="about" value="#{accountsController.tmpLogin}" title="#{bundle.EditAccountsTitle_about}" />
+                    <h:inputText id="about" value="#{editAccountController.tmpLogin}" title="#{bundle.EditAccountsTitle_about}" />
 
                     <h:outputLabel for="pwd1" value="New password" />
-                    <p:password id="pwd1" value="#{accountsController.tmpPassword}" match="pwd2" label="Password 1" required="true" />
+                    <p:password id="pwd1" value="#{editAccountController.tmpPassword}" match="pwd2" label="Password 1" required="true" />
 
                     <h:outputLabel for="pwd2" value="Repeat new password" />
-                    <p:password id="pwd2" value="#{accountsController.tmpPassword}" label="Password 2" required="true" />
+                    <p:password id="pwd2" value="#{editAccountController.tmpPassword}" label="Password 2" required="true" />
                 </h:panelGrid>
-                <p:commandButton styleClass="reset" update="matchGrid" value="Reset Password" action="#{accountsController.checkPasswordChange}" />    
+                <p:commandButton styleClass="reset" update="matchGrid" value="Reset Password" action="#{editAccountController.checkPasswordChange}" />    
             </h:form>
             <h:form>
                 <!-- Här blir det dumt när vi ska redirecta tillbaka, går inte att logga in igen då. -->
