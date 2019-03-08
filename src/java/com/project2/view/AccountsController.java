@@ -36,6 +36,10 @@ public class AccountsController implements Serializable {
   
     public AccountsController() {
     }
+    
+    public boolean isLoggedIn(){
+        return current.getIsLoggedIn();
+    }
  
 
     public Accounts getCurrent() {
@@ -50,8 +54,12 @@ public class AccountsController implements Serializable {
 
         return current.getCurrentAccount();
     }
+    
+    public String prepareLogin(){
+        return "login";
+    }
 
-    public String prepareLogin() {
+    public String login() {
 
         List l = ejbFacade.findByLogin(getCurrent().getLogin());
         //throw new IllegalStateException("Inloggad!" + l);
@@ -59,8 +67,8 @@ public class AccountsController implements Serializable {
             Accounts tmp = (Accounts) l.get(0);
             if (tmp.getPassword().equals(getCurrent().getPassword())) {
                 current.setCurrentAccount(tmp);
-                System.out.println("current i accountscontroller " + getCurrent());
-                return "Startpage";
+                current.setLoggedIn(true);
+                return "startpage";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }
         }
@@ -68,7 +76,8 @@ public class AccountsController implements Serializable {
     }
 
     public String prepareLogout() {
-        //current = new Accounts();
+        current.setCurrentAccount(new Accounts());
+        current.setLoggedIn(false);
         return "home";
     }
 
@@ -118,6 +127,8 @@ public class AccountsController implements Serializable {
     public String createAndLogin() {
         try {
             getFacade().create(getCurrent());
+            current.setCurrentAccount(getCurrent());
+            current.setLoggedIn(true);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsCreated"));
             return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {

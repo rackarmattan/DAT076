@@ -17,4 +17,20 @@
             <to-view-id>/faces/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <description>Go to user's start page</description>
+        <from-view-id>Login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>startpage</from-outcome>
+            <to-view-id>/faces/accounts/Startpage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <description>Go to login</description>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/faces/accounts/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

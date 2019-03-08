@@ -10,7 +10,11 @@
 
     <body>
         <div class="topnav">
-            <a class="active" href="faces/accounts/Login.xhtml">Login</a>
+            <h:form>
+            <h:commandLink action="#{accountsController.prepareLogout()}" rendered="#{accountsController.isLoggedIn()}" value="Log out" />
+            <h:commandLink action="#{accountsController.prepareLogin()}" rendered="#{!accountsController.isLoggedIn()}" value="Log in" />
+            </h:form>
+            <!--<a class="active" href="faces/accounts/Login.xhtml">Login</a>-->
             <a href="faces/accounts/Login.xhtml">Home</a>
             <a href="http://www.friatider.se/">News</a>
             <a href="#about">About</a>
