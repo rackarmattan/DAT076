@@ -12,6 +12,7 @@ package com.project2.model;
 public class CurrentAccountManager {
     private static CurrentAccountManager currentAccounts = null;
     private Accounts account;
+    private boolean isLoggedIn = false;
     
     private CurrentAccountManager(){
         this.account = new Accounts();
@@ -29,5 +30,13 @@ public class CurrentAccountManager {
     
     public Accounts getCurrentAccount(){
         return account;
+    }
+    
+    public void setLoggedIn(boolean value){
+        this.isLoggedIn = value;
+    }
+    
+    public boolean getIsLoggedIn(){
+        return isLoggedIn;
     }
 }
