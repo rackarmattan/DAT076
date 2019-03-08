@@ -70,15 +70,19 @@ public class AccountsController implements Serializable {
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }
         }
-        return "/accounts/Login?faces-redirect=true";
+        return null;
     }
 
     public String prepareLogout() {
+        //current.setLoggedIn(false);
         current.setCurrentAccount(new Accounts());
-        current.setLoggedIn(false);
-        return "/../index?faces-redirect=true";
+        return "/index?faces-redirect=true";
 //return "index?faces-redirect=true";
 
+    }
+    
+    public void setLoggedOut(){
+        current.setLoggedIn(false);
     }
 
     public String prepareCreatePage() {

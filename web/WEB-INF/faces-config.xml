@@ -12,12 +12,12 @@
    <!--
     <navigation-rule>
         <description>Return to homepage</description>
-        <from-view-id>*</from-view-id>
+        <from-view-id>/accounts/Startpage.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>home</from-outcome>
             <to-view-id>/faces/index.xhtml</to-view-id>
         </navigation-case>
-    </navigation-rule> 
-     -->
+    </navigation-rule> -->
+     
     <!-- KOM IHÅG ATT LÄNKAR ÄR CASE KÄNSLIGA!!!-->
 </faces-config>
