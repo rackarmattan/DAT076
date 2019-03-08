@@ -33,20 +33,18 @@ public class AccountsController implements Serializable {
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
-  
     public AccountsController() {
     }
-    
-    public boolean isLoggedIn(){
+
+    public boolean isLoggedIn() {
         return current.getIsLoggedIn();
     }
- 
 
     public Accounts getCurrent() {
         return current.getCurrentAccount();
     }
-    
-    public void setCurrent(Accounts account){
+
+    public void setCurrent(Accounts account) {
         current.setCurrentAccount(account);
     }
 
@@ -54,9 +52,9 @@ public class AccountsController implements Serializable {
 
         return current.getCurrentAccount();
     }
-    
-    public String prepareLogin(){
-        return "login";
+
+    public String prepareLogin() {
+        return "/accounts/Login?faces-redirect=true";
     }
 
     public String login() {
@@ -68,17 +66,19 @@ public class AccountsController implements Serializable {
             if (tmp.getPassword().equals(getCurrent().getPassword())) {
                 current.setCurrentAccount(tmp);
                 current.setLoggedIn(true);
-                return "startpage";
+                return "/accounts/Startpage?faces-redirect=true";
                 //throw new IllegalStateException("Inloggad!" + l.toString());
             }
         }
-        return "Login";
+        return "/accounts/Login?faces-redirect=true";
     }
 
     public String prepareLogout() {
         current.setCurrentAccount(new Accounts());
         current.setLoggedIn(false);
-        return "home";
+        return "/../index?faces-redirect=true";
+//return "index?faces-redirect=true";
+
     }
 
     public String prepareCreatePage() {
@@ -136,7 +136,8 @@ public class AccountsController implements Serializable {
             return "Create.xhtml?faces-redirect=true";
         }
     }
-/*
+
+    /*
     public String prepareEdit() {
         current = (Accounts) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
@@ -199,7 +200,6 @@ public class AccountsController implements Serializable {
             current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }*/
-
     public DataModel getItems() {
         if (items == null) {
             items = getPagination().createPageDataModel();
