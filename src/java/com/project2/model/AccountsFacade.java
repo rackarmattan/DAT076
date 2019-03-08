@@ -40,7 +40,6 @@ public class AccountsFacade extends AbstractFacade<Accounts> {
     public Set<Fruits> findAccountFruits(String login){
         Accounts ac = em.find(Accounts.class, login);
         if(ac != null){
-            System.out.println("Inne i if-sats, ac ej null");
             return ac.getFruits();
         }
         return null;

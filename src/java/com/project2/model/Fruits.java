@@ -29,7 +29,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Fruits.findAll", query = "SELECT f FROM Fruits f")
     , @NamedQuery(name = "Fruits.findByFname", query = "SELECT f FROM Fruits f WHERE f.fname = :fname")
-    , @NamedQuery(name = "Fruits.findByColor", query = "SELECT f FROM Fruits f WHERE f.color = :color")})
+    , @NamedQuery(name = "Fruits.findByColor", query = "SELECT f FROM Fruits f WHERE f.color = :color")
+   // , @NamedQuery(name="Fruits.findByLogin", query= "SELECT f FROM Fruits f WHERE " + "f.acounts IN (SELECT ac FROM Accounts ac WHERE ac.login =:login")
+})
 public class Fruits implements Serializable {
 
     private static final long serialVersionUID = 1L;

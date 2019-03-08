@@ -49,30 +49,31 @@ public class Accounts implements Serializable {
     @Column(name = "ABOUT")
     private String about;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name="FRUITS")
+    @JoinTable(name = "FRUITS")
     private Set<Fruits> fruits = new HashSet<>();
 
     public Accounts() {
     }
-    public Set<Fruits> getFruits(){
+
+    public Set<Fruits> getFruits() {
         return fruits;
     }
-    
-    public void setFruits(Set<Fruits> fruits){
+
+    public void setFruits(Set<Fruits> fruits) {
         this.fruits = fruits;
     }
-    
-    public boolean addFruit(Fruits fruit){
-        if(fruits.contains(fruit)){
+
+    public boolean addFruit(Fruits fruit) {
+        if (fruits.contains(fruit)) {
             return false;
         }
         fruits.add(fruit);
         fruit.addAccount(this);
         return true;
     }
-    
-    public boolean removeFruit(Fruits fruit){
-        if(fruits.contains(fruit)){
+
+    public boolean removeFruit(Fruits fruit) {
+        if (fruits.contains(fruit)) {
             fruits.remove(fruit);
             fruit.removeAccount(this);
             return true;
@@ -145,5 +146,5 @@ public class Accounts implements Serializable {
     public String toString() {
         return "com.project2.model.Accounts[ login=" + login + " ]";
     }
-    
+
 }
