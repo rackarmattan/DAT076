@@ -14,6 +14,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.view.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -27,7 +28,7 @@ import javax.inject.Inject;
 @RequestScoped
 public class AccountsController implements Serializable {
 
-    private CurrentAccountManager current = CurrentAccountManager.getInstance();
+    private CurrentAccountManager current; //= CurrentAccountManager.getInstance();
     private DataModel items = null;
     @EJB
     private AccountsFacade ejbFacade;
@@ -35,6 +36,7 @@ public class AccountsController implements Serializable {
     private int selectedItemIndex;
 
     public AccountsController() {
+        this.current = CurrentAccountManager.getInstance();
     }
 
     public boolean isLoggedIn() {
