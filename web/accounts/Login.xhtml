@@ -16,7 +16,7 @@ and open the template in the editor.
         <!-- <h:outputStylesheet name="css/jsfcrud.css"/> -->
         <h:outputStylesheet library = "css" name="Login.css"/>
     </h:head>
-     <ui:include src ="../template.xhtml"></ui:include>
+    <ui:include src ="../template.xhtml"></ui:include>
     <h:body>    
         <br />
         <h:link outcome="/accounts/List" value="Show All Accounts Items"/>
@@ -45,11 +45,11 @@ and open the template in the editor.
                     </h:commandButton>
                 </div>
             </h:form>
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
-            </div>
-
+            <br />
+            <h:form>
+                    <h:link value="Cancel" outcome="/Index?faces-redirect=true" styleClass="cancelbtn"/>
+                    <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
+            </h:form>
         </div>    
     </h:body>
 </ui:composition> 
