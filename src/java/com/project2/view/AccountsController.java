@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.component.UIComponent;
@@ -23,7 +24,7 @@ import javax.faces.model.SelectItem;
 import javax.inject.Inject;
 
 @Named("accountsController")
-@SessionScoped
+@RequestScoped
 public class AccountsController implements Serializable {
 
     private CurrentAccountManager current = CurrentAccountManager.getInstance();
