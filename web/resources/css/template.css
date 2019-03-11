@@ -5,7 +5,7 @@
 }
 
 /* Style the links inside the navigation bar */
-.topnav a, #nameText, link{
+.topnav a {
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -14,6 +14,23 @@
     font-size: 17px;
 }
 
+h:commandLink {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+#nameText{
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
 
 /* Change the color of links on hover */
 .topnav a:hover {

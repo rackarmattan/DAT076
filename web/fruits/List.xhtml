@@ -7,7 +7,7 @@
 
 
     <h:head>
-        <h:outputStylesheet name="css/startPage.css"/>
+        <h:outputStylesheet name="css/FruitsList.css"/>
     </h:head>
 
     <ui:include src ="../template.xhtml"></ui:include>
@@ -27,8 +27,13 @@
                 <h:outputText value="#{fruitsController.pagination.pageFirstItem + 1}..#{fruitsController.pagination.pageLastItem + 1}/#{fruitsController.pagination.itemsCount}"/>&nbsp;
                 <h:commandLink action="#{fruitsController.previous}" value="#{bundle.Previous} #{fruitsController.pagination.pageSize}" rendered="#{fruitsController.pagination.hasPreviousPage}"/>&nbsp;
                 <h:commandLink action="#{fruitsController.next}" value="#{bundle.Next} #{fruitsController.pagination.pageSize}" rendered="#{fruitsController.pagination.hasNextPage}"/>&nbsp;
-                <h:dataTable value="#{fruitsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                    <h:column>
+                <h:dataTable styleClass ="dataTable" value="#{fruitsController.items}" 
+                             var="item" border="0" 
+                             cellpadding="2" 
+                             cellspacing="0" 
+                             rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
+                             rules="all">
+                    <h:column headerClass="fruitName">
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListFruitsTitle_fname}"/>
                         </f:facet>
