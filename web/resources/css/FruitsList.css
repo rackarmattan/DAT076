@@ -23,21 +23,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 .dataTable{
- border: solid 1px;
+ border-bottom: black; 
  width: 100%;
  float: left;
  align-content: center;
 }
 
  .headerText{
- 
  text-align: left;
  border: none; 
  } 
- 
-.fruitName{
- width: 100%;
- float: left;
- text-align: left; 
-}
-
