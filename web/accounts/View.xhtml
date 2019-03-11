@@ -8,35 +8,32 @@
      <h:head>
         <title> Title </title>
         <h:outputStylesheet name="css/accountDetails.css"/>
-
     </h:head>
     
     <body>
-     
         <ui:include src ="../template.xhtml"></ui:include>
-       <br/>
-        <div style="width:400px;height:400px;border:2px solid #D3D3D3">
-
-        <label for="login"><b>Username</b></label>
-        <h:form>
-            <h:inputText id="login" value="#{accountsController.current.login}"/>
-        </h:form>
-        <br/>  
-        <label for="login"><b>Password</b></label>
-        <h:form>
-            <h:inputText id="login" value="#{accountsController.current.login}"/>
-        </h:form>        
-        <br/>  
-        <label for="login"><b>Email</b></label>
-        <h:form>
-            <h:inputText id="login" value="#{accountsController.current.login}"/>
-        </h:form>        
         <br/>
-        <label for="login"><b>About</b></label>
-        <h:form>
-            <h:inputText id="login" value="#{accountsController.current.login}"/>
-        </h:form>        
+        <div style="width:400px;height:400px;border:2px solid #D3D3D3">
+            <br/>
+            <label for="login"><b>Username</b></label>
+            <h:form>
+                <h:inputText id="login" value="#{accountsController.current.login}"/>
+            </h:form>
+            <br/>  
+            <label for="login"><b>Password</b></label>
+            <h:form>
+                <h:inputText id="login" value="#{accountsController.current.password}"/>
+            </h:form>        
+            <br/>  
+            <label for="login"><b>Email</b></label>
+            <h:form>
+                <h:inputText id="login" value="#{accountsController.current.email}"/>
+            </h:form>        
+            <br/>
+            <label for="login"><b>About</b></label>
+            <h:form>
+                <h:inputText id="login" value="#{accountsController.current.about}"/>
+            </h:form>        
         </div>
-  
     </body>
 </html>
