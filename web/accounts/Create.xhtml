@@ -6,7 +6,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
         <h:head>
-            <h:outputStylesheet library = "css" name="createDesign.css"/>
+            <h:outputStylesheet library = "css" name="Create.css"/>
             <h:outputText styleClass="headerText" value="#{bundle.CreateAccountsTitle}"></h:outputText>
         </h:head> 
 
@@ -38,7 +38,7 @@
                 <h:commandLink action="#{accountsController.prepareList}" value="#{bundle.CreateAccountsShowAllLink}" immediate="true"/>
                 <br />
                 <br />
-                <h:link outcome="/index" value="#{bundle.CreateAccountsIndexLink}"/>
+                <h:link outcome="/Index" value="#{bundle.CreateAccountsIndexLink}"/>
             </h:form>
         </h:body>
 </ui:composition>

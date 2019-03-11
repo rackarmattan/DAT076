@@ -74,7 +74,7 @@ public class AccountsController implements Serializable {
 
     public String prepareLogout() {
         current.setCurrentAccount(new Accounts());
-        return "/index?faces-redirect=true";
+        return "/Index?faces-redirect=true";
     }
     
     public void setLoggedOut(){
