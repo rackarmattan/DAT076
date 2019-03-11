@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <title>TODO supply a title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -19,6 +20,8 @@
             <a href="faces/accounts/Login.xhtml">Home</a>
             <a href="http://www.friatider.se/">News</a>
             <a href="#about">About</a>
+            <h:outputText rendered="#{accountsController.isLoggedIn()}" id='nameText' value="You're logged in as #{accountsController.current.login}"/>
+
             <!--<h:button rendered="#{e}" ></h:button>-->
         </div>
     </body>

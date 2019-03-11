@@ -50,7 +50,6 @@ public class AccountsController implements Serializable {
     }
 
     public Accounts getSelected() {
-
         return current.getCurrentAccount();
     }
 
@@ -59,27 +58,21 @@ public class AccountsController implements Serializable {
     }
 
     public String login() {
-
         List l = ejbFacade.findByLogin(getCurrent().getLogin());
-        //throw new IllegalStateException("Inloggad!" + l);
         if (!l.isEmpty()) {
             Accounts tmp = (Accounts) l.get(0);
             if (tmp.getPassword().equals(getCurrent().getPassword())) {
                 current.setCurrentAccount(tmp);
                 current.setLoggedIn(true);
                 return "/accounts/Startpage?faces-redirect=true";
-                //throw new IllegalStateException("Inloggad!" + l.toString());
             }
         }
         return null;
     }
 
     public String prepareLogout() {
-        //current.setLoggedIn(false);
         current.setCurrentAccount(new Accounts());
         return "/index?faces-redirect=true";
-//return "index?faces-redirect=true";
-
     }
     
     public void setLoggedOut(){
