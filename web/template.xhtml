@@ -17,8 +17,11 @@
             <h:commandLink action="#{accountsController.prepareLogin()}" rendered="#{!accountsController.isLoggedIn()}" value="Log in" />
             </h:form>
             <!--<a class="active" href="faces/accounts/Login.xhtml">Login</a>-->
-            <a href="faces/accounts/Login.xhtml">Home</a>
-            <a href="http://www.friatider.se/">News</a>
+            <!--<a href="faces/accounts/Login.xhtml">Home</a>-->
+            <h:link rendered="#{accountsController.isLoggedIn()}" value="Home" outcome="/accounts/Startpage?faces-redirect=true"/>
+            <h:link rendered="#{!accountsController.isLoggedIn()}" value="Home" outcome="/index?faces-redirect=true"/>
+
+                    <a href="http://www.friatider.se/">News</a>
             <a href="#about">About</a>
             <h:outputText rendered="#{accountsController.isLoggedIn()}" id='nameText' value="You're logged in as #{accountsController.current.login}"/>
 
