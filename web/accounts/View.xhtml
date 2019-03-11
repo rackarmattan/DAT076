@@ -14,7 +14,20 @@
     <body>
      
         <ui:include src ="../template.xhtml"></ui:include>
+        User:
         <h:outputText styleClass="headerText" value="#{accountsController.current.login}"></h:outputText>
+        
+        Password:
+        <h:outputText styleClass="headerText" value="#{accountsController.current.password}"></h:outputText>
+        
+        Email:
+        <h:outputText styleClass="headerText" value="#{accountsController.current.email}"></h:outputText>
+
+        About: 
+        <h:outputText styleClass="headerText" value="#{accountsController.current.about}"></h:outputText>
+
+       
+
         
   
     </body>
