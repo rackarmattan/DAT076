@@ -29,10 +29,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
  align-content: center;
 }
 
- .header{
- width: 100%;
- float: left;
- align-content: center;
+ .headerText{
+ 
+ text-align: left;
+ border: none; 
  } 
  
 .fruitName{

@@ -33,19 +33,19 @@
                              cellspacing="0" 
                              rowClasses="jsfcrud_odd_row,jsfcrud_even_row" 
                              rules="all">
-                    <h:column headerClass="fruitName">
+                    <h:column headerClass = "headerText">
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListFruitsTitle_fname}"/>
                         </f:facet>
                         <h:outputText value="#{item.fname}"/>
-                    </h:column>
-                    <h:column>
+                    </h:column >
+                    <h:column headerClass ="headerText">
                         <f:facet name="header">
                             <h:outputText value="#{bundle.ListFruitsTitle_color}"/>
                         </f:facet>
                         <h:outputText value="#{item.color}"/>
                     </h:column>
-                    <h:column>
+                    <h:column headerClass ="headerText">
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>
                         </f:facet>
