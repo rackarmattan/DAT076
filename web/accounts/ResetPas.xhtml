@@ -7,14 +7,15 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
                 xmlns:p="http://primefaces.org/ui">
 
+    <div>
+        <ui:include src ="../template.xhtml"></ui:include>
+    </div>
     <h:head>
         <h:outputStylesheet library = "css" name="ResetPassword.css"/> 
     </h:head>
 
-    <ui:include src ="../template.xhtml"></ui:include>
-
     <h:body>
-        <h:form styleClass = "formis">
+        <h:form>
             <p:messages id="messages" showDetail="true" autoUpdate="true" />
             <h2>Welcome to password reset</h2>
             <h4>The password must be of at least 3 characters or more.</h4>
@@ -28,7 +29,9 @@
                 <h:outputLabel for="pwd2" value="Repeat new password" />
                 <p:password id="pwd2" value="#{editAccountController.tmpPassword}" label="Password 2" required="true" />
             </h:panelGrid>
-            <p:commandButton styleClass="reset" update="matchGrid" value="Reset Password" action="#{editAccountController.checkPasswordChange}" />    
+            <div styleClass="buttonholder">
+                <p:commandButton styleClass="reset" update="matchGrid" value="Reset Password" action="#{editAccountController.checkPasswordChange}" /> 
+            </div>
         </h:form>
         <h:form>
             <div styleClass="buttonholder">
