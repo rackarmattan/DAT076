@@ -17,8 +17,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author rackarmattan
- * Controller class for editing accounts info
+ * @author rackarmattan Controller class for editing accounts info
  */
 @Named("editAccountController")
 @SessionScoped
@@ -41,15 +40,15 @@ public class EditAccountController implements Serializable {
     public String getTmpLogin() {
         return tmpLogin;
     }
-    
+
     public String getTmpPassword() {
         return tmpPassword;
     }
-    
-    public void setTmpPassword(String password){
+
+    public void setTmpPassword(String password) {
         this.tmpPassword = password;
     }
-    
+
     public Accounts getCurrent() {
         return current.getCurrentAccount();
     }
@@ -62,20 +61,24 @@ public class EditAccountController implements Serializable {
         //Try to get a user by the entered name.
         List l = ejbFacade.findByLogin(tmpLogin);
 
+        if (tmpPassword.length() < 3) {
+            JsfUtil.addErrorMessage("Password must be at least 3 characters long.");
+
+        }
         //Checks if the user exists. 
-        if (!l.isEmpty()) {
+        else if (!l.isEmpty()) {
             Accounts tmp = (Accounts) l.get(0);
             tmp.setPassword(tmpPassword);
             ejbFacade.edit(tmp); //Important row, needed for updating the database. 
             JsfUtil.addSuccessMessage("Password changed for: " + tmpLogin);
         } //Not a vaild name - send error msg. 
-        else {
+         else {
             JsfUtil.addErrorMessage("Invaild user name, please try again.");
         }
     }
-    
+
     //Supposed to be called by commandbutton if user wants to update its own info
-    public void updateAccountInfo(){
+    public void updateAccountInfo() {
         ejbFacade.edit(getCurrent());
     }
 

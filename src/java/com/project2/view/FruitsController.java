@@ -86,13 +86,13 @@ public class FruitsController implements Serializable {
         current = (Fruits) getItems().getRowData();
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         System.out.println("INNE I MARK, CURRENT: " + current);
-/*
+
         if (getCurrent().addFruit(current)) {
             JsfUtil.addSuccessMessage("Fruit added to my favorites");
         } else {
             JsfUtil.addErrorMessage("This fruit is already in your list");
 
-        }*/
+        }
 
     }
 
