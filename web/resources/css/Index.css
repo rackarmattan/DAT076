@@ -8,15 +8,10 @@
 }
 
 /* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
 
-/* Avatar image */
-img.avatar {
-  width: 60%;
-  border-radius: 50%;
+video {
+  width: 100%;
+  height: auto
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -28,4 +23,14 @@ img.avatar {
   .cancelbtn {
     width: 100%;
   }
+}
+
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+    color: white;
+    padding-top: 100px;
+    padding-left: 40px; 
 }

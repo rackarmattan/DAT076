@@ -9,7 +9,7 @@
         <title>Facelet Title</title>
         <h:outputStylesheet name="css/Index.css"/>
     </h:head>
-    
+
     <f:metadata>
         <f:viewAction action="#{accountsController.setLoggedOut}" />
     </f:metadata>
@@ -17,21 +17,15 @@
     <h:body id="mainFix">
 
         <ui:include src ="template.xhtml"></ui:include>
-
-        <h1> Welcome to FruitPeida </h1>
-        <h2> Your gateway for learning more about the fantastic world of fruits</h2>
-
-        <!-- Might be useful for debugging !
-        <br />
-        <h:link outcome="/accounts/List" value="Show All Accounts Items"/>
-        <br />
-        <h:link outcome="/fruits/List" value="Show All Fruits Items"/>
-        <br />
-        <h:link outcome="/accounts/Login" value="Show Login page"/>
-        -->
-        <div class="imgcontainer">
-            <img src="resources/images/fruitWelcome.jpg" alt="Avatar" class="avatar" />
-        </div>   
+      
+            <video autoplay="" muted="" loop="">
+                <source src="resources/video/startVideo.mp4" type="video/mp4"></source>
+                Your browser does not support the <code>video</code> tag.
+            </video>
+            <div class="overlay">
+                <h1> Welcome to FruitPeida </h1>
+                <h2> Your gateway for learning more about the fantastic world of fruits</h2>
+            </div>
     </h:body>
 </ui:composition>
 
