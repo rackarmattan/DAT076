@@ -88,11 +88,13 @@ public class FruitsController implements Serializable {
         System.out.println("INNE I MARK, CURRENT: " + current);
 
         if (getCurrent().addFruit(current)) {
+            ejbFacade.edit(current);
             JsfUtil.addSuccessMessage("Fruit added to my favorites");
         } else {
             JsfUtil.addErrorMessage("This fruit is already in your list");
 
         }
+        System.out.println("Mattans fruits: " +getCurrent().getFruits().toString());
 
     }
 
@@ -130,6 +132,7 @@ public class FruitsController implements Serializable {
 
     public String destroy() {
         current = (Fruits) getItems().getRowData();
+        System.out.println("Inne i destroy");
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         performDestroy();
         recreatePagination();

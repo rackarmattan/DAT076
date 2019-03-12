@@ -63,7 +63,6 @@ public class EditAccountController implements Serializable {
 
         if (tmpPassword.length() < 3) {
             JsfUtil.addErrorMessage("Password must be at least 3 characters long.");
-
         }
         //Checks if the user exists. 
         else if (!l.isEmpty()) {

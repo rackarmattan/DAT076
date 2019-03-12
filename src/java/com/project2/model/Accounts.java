@@ -49,7 +49,6 @@ public class Accounts implements Serializable {
     @Column(name = "ABOUT")
     private String about;
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinTable(name = "FRUITS")
     private Set<Fruits> fruits = new HashSet<>();
 
     public Accounts() {
