@@ -37,12 +37,4 @@ public class AccountsFacade extends AbstractFacade<Accounts> {
         acc = em.createNamedQuery("Accounts.findByLogin", Accounts.class).setParameter("login", login).getSingleResult();
         return acc;
     }
-    
-    public Set<Fruits> findAccountFruits(String login){
-        Accounts ac = em.find(Accounts.class, login);
-        if(ac != null){
-            return ac.getFruits();
-        }
-        return null;
-    }
 }

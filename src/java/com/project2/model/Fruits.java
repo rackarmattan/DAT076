@@ -7,6 +7,8 @@ package com.project2.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -44,7 +46,7 @@ public class Fruits implements Serializable {
     private String color;
     @ManyToMany(mappedBy="fruits", 
             cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    public Set<Accounts> accounts = new HashSet<Accounts>();
+    public List<Accounts> accounts = new LinkedList<Accounts>();
 
     public Fruits() {
     }
@@ -58,11 +60,11 @@ public class Fruits implements Serializable {
         this.color = color;
     }
 
-    public Set getAccounts(){
+    public List getAccounts(){
         return accounts;
     }
     
-    public void setAccounts(Set<Accounts> accounts){
+    public void setAccounts(List<Accounts> accounts){
         this.accounts = accounts;
     }
     

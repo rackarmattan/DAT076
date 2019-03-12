@@ -13,6 +13,8 @@ import com.project2.model.FruitsFacade;
 import com.project2.view.util.JsfUtil;
 import com.project2.view.util.PaginationHelper;
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -43,11 +45,8 @@ public class AccountFruitListController implements Serializable {
         currentAccount.setCurrentAccount(account);
     }
 
-    public void showFruitList() {
-        //Set<Fruits> tmp = ejbFacade.findAccountFruits(getCurrent().getLogin());
-        //System.out.println("Testar setter av current: " +getCurrent().getLogin());
-        Set<Fruits> tmp = getCurrentAccount().getFruits();
-        System.out.println(tmp);
+    public List<Fruits> showFruitList() {
+        return getCurrentAccount().getFruits();
     }
 
     public void markAsFavourite(String fruitName) {
