@@ -28,4 +28,9 @@ public class FruitsFacade extends AbstractFacade<Fruits> {
         super(Fruits.class);
     }
     
+    public Fruits findByFname(String fname) {
+        Fruits fruit = null;
+        fruit = em.createNamedQuery("Fruits.findByFname", Fruits.class).setParameter("fname", fname).getSingleResult();
+        return fruit;
+    }
 }

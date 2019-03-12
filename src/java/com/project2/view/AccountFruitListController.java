@@ -9,6 +9,8 @@ import com.project2.model.Accounts;
 import com.project2.model.AccountsFacade;
 import com.project2.model.CurrentAccountManager;
 import com.project2.model.Fruits;
+import com.project2.model.FruitsFacade;
+import com.project2.view.util.JsfUtil;
 import com.project2.view.util.PaginationHelper;
 import java.io.Serializable;
 import java.util.Set;
@@ -22,29 +24,41 @@ import javax.inject.Named;
  *
  * @author rackarmattan
  */
-
 @Named("aflController")
 @SessionScoped
 public class AccountFruitListController implements Serializable {
 
-    private CurrentAccountManager current = CurrentAccountManager.getInstance();
+    private CurrentAccountManager currentAccount = CurrentAccountManager.getInstance();
     @EJB
-    private AccountsFacade ejbFacade;
+    private AccountsFacade accountFacade;
+    @EJB
+    private FruitsFacade fruitFacade;
     private DataModel items = null;
 
-    public Accounts getCurrent() {
-        return current.getCurrentAccount();
+    public Accounts getCurrentAccount() {
+        return currentAccount.getCurrentAccount();
     }
 
-    public void setCurrent(Accounts account) {
-        current.setCurrentAccount(account);
+    public void setCurrentAccount(Accounts account) {
+        currentAccount.setCurrentAccount(account);
     }
-    
-    public void showFruitList(){
+
+    public void showFruitList() {
         //Set<Fruits> tmp = ejbFacade.findAccountFruits(getCurrent().getLogin());
         //System.out.println("Testar setter av current: " +getCurrent().getLogin());
-        Set<Fruits> tmp = getCurrent().getFruits();
+        Set<Fruits> tmp = getCurrentAccount().getFruits();
         System.out.println(tmp);
+    }
+
+    public void markAsFavourite(String fruitName) {
+        Fruits tmp = fruitFacade.findByFname(fruitName);
+        if (tmp != null && getCurrentAccount().addFruit(tmp)) {
+            accountFacade.edit(getCurrentAccount());
+            fruitFacade.edit(tmp);
+            JsfUtil.addSuccessMessage(fruitName + " added to your list of favourites.");
+        } else {
+            JsfUtil.addErrorMessage("That fruit is already in your favourite list.");
+        }
     }
 
 }

@@ -60,15 +60,16 @@ public class AccountsController implements Serializable {
     }
 
     public String login() {
-        List l = ejbFacade.findByLogin(getCurrent().getLogin());
-        if (!l.isEmpty()) {
-            Accounts tmp = (Accounts) l.get(0);
+        Accounts tmp = ejbFacade.findByLogin(getCurrent().getLogin());
+        if (tmp != null) {
             if (tmp.getPassword().equals(getCurrent().getPassword())) {
                 current.setCurrentAccount(tmp);
                 current.setLoggedIn(true);
                 return "/accounts/Startpage?faces-redirect=true";
             }
+            JsfUtil.addErrorMessage("Wrong password!");
         }
+        JsfUtil.addErrorMessage("An account with that login doesn't exist.");
         return null;
     }
 
@@ -76,8 +77,8 @@ public class AccountsController implements Serializable {
         current.setCurrentAccount(new Accounts());
         return "/Index?faces-redirect=true";
     }
-    
-    public void setLoggedOut(){
+
+    public void setLoggedOut() {
         current.setLoggedIn(false);
     }
 

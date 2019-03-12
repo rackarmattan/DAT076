@@ -59,16 +59,15 @@ public class EditAccountController implements Serializable {
 
     public void checkPasswordChange() {
         //Try to get a user by the entered name.
-        List l = ejbFacade.findByLogin(tmpLogin);
+        Accounts tmp = ejbFacade.findByLogin(tmpLogin);
 
         if (tmpPassword.length() < 3) {
             JsfUtil.addErrorMessage("Password must be at least 3 characters long.");
         }
         //Checks if the user exists. 
-        else if (!l.isEmpty()) {
-            Accounts tmp = (Accounts) l.get(0);
+        else if (tmp != null) {
             tmp.setPassword(tmpPassword);
-            ejbFacade.edit(tmp); //Important row, needed for updating the database. 
+            ejbFacade.edit(tmp);
             JsfUtil.addSuccessMessage("Password changed for: " + tmpLogin);
         } //Not a vaild name - send error msg. 
          else {

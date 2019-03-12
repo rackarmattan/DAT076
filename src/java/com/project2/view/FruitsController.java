@@ -1,6 +1,7 @@
 package com.project2.view;
 
 import com.project2.model.Accounts;
+import com.project2.model.AccountsFacade;
 import com.project2.model.CurrentAccountManager;
 import com.project2.model.Fruits;
 import com.project2.view.util.JsfUtil;
@@ -34,6 +35,7 @@ public class FruitsController implements Serializable {
 
     public FruitsController() {
     }
+ 
 
     public Fruits getSelected() {
         if (current == null) {
@@ -81,23 +83,7 @@ public class FruitsController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-
-    public void markAsFavourite() {
-        current = (Fruits) getItems().getRowData();
-        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
-        System.out.println("INNE I MARK, CURRENT: " + current);
-
-        if (getCurrent().addFruit(current)) {
-            ejbFacade.edit(current);
-            JsfUtil.addSuccessMessage("Fruit added to my favorites");
-        } else {
-            JsfUtil.addErrorMessage("This fruit is already in your list");
-
-        }
-        System.out.println("Mattans fruits: " +getCurrent().getFruits().toString());
-
-    }
-
+    
     public Accounts getCurrent() {
         return currentAccount.getCurrentAccount();
     }
