@@ -179,6 +179,7 @@ public class FruitsController implements Serializable {
             items = getPagination().createPageDataModel();
         }
         return items;
+       
     }
 
     private void recreateModel() {

@@ -25,12 +25,13 @@ video {
   }
 }
 
+h1{
+    font-size: 70px; 
+}
+
 .overlay {
     position:absolute;
     top:0;
-    left:0;
-    z-index:1;
     color: white;
-    padding-top: 100px;
-    padding-left: 40px; 
+    padding: 8% 8% 0% 5%; 
 }
