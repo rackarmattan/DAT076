@@ -9,6 +9,37 @@
         <ui:define name="title">
             <h:outputText value="#{bundle.CreateFruitsTitle}"></h:outputText>
         </ui:define> -->
+    
+     <h:head>
+        <title> Title </title>
+        <h:outputStylesheet name="css/createFruits.css"/>
+    </h:head>
+    
+    <body>
+        <ui:include src ="../template.xhtml"></ui:include>
+        <h1>Create New Fruit</h1>
+        <div class="divframe">
+        <br/>
+        <textInput>Name</textInput>
+        <h:form>
+            <h:inputText id="login"/>
+        </h:form>
+        <textInput>Color</textInput>
+        <h:form>
+            <h:inputText id="login"/>
+        </h:form>
+            <div class="container">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button type="button" class="addbtn">Add</button>
+            </div>
+        </div>
+        <div class="imgcontainer">
+            <img src="resources/images/fruits-vegetables.jpg" alt="Avatar" class="avatar" />
+        </div> 
+    </body>
+    </ui:composition>
+
+<!---
 
     <h:head>
         <h:outputStylesheet library = "css" name="jsfcrud.css"/>
@@ -39,3 +70,4 @@
         </h:form>
     </h:body>
 </ui:composition>
+-->

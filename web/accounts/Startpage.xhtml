@@ -20,7 +20,13 @@
                 <div class="column">
                     <div class="card">
                         <h:form>
+<<<<<<< HEAD<!---
                             <h:link outcome="/accounts/MyList?faces-redirect=true" value="My list"/>
+-->
+                            <h:commandLink action="#{aflController.showFruitList()}" value="My lists"/>
+                                                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+
+>>>>>>> bark
                         </h:form>
                     </div>
                 </div>
@@ -42,9 +48,9 @@
                 </div>
             </h:link>
 
-            <h:link outcome="/fruits/View">
+            <h:link outcome="/accounts/View">
                 <div class="column">
-                    <div class="card">Settings
+                    <div class="card">Account Details
                     </div>
                 </div>
             </h:link>
