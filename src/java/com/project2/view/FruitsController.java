@@ -1,7 +1,6 @@
 package com.project2.view;
 
 import com.project2.model.Accounts;
-import com.project2.model.AccountsFacade;
 import com.project2.model.CurrentAccountManager;
 import com.project2.model.Fruits;
 import com.project2.view.util.JsfUtil;
@@ -21,6 +20,12 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
+/***
+ * This class handles the communication between the user and the database
+ * when the user wants to create, delete, edit or display fruits.
+ * @author rackarmattan
+ */
+
 @Named("fruitsController")
 @SessionScoped
 public class FruitsController implements Serializable {
@@ -35,7 +40,6 @@ public class FruitsController implements Serializable {
 
     public FruitsController() {
     }
- 
 
     public Fruits getSelected() {
         if (current == null) {

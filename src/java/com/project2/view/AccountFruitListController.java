@@ -22,10 +22,13 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Named;
 
-/**
- *
+/***
+ * This class handles the communication between the user and the database when 
+ * the user wants to add fruits to its list of fruits or display its list of fruits.
  * @author rackarmattan
  */
+
+
 @Named("aflController")
 @SessionScoped
 public class AccountFruitListController implements Serializable {
@@ -49,6 +52,12 @@ public class AccountFruitListController implements Serializable {
         return getCurrentAccount().getFruits();
     }
 
+    /***
+     * Takes the fruit name that the user wants to mark as favourite and
+     * add to its list of fruits. If the fruit is not in the user's list, 
+     * it's added.
+     * @param fruitName 
+     */
     public void markAsFavourite(String fruitName) {
         Fruits tmp = fruitFacade.findByFname(fruitName);
         if (tmp != null && getCurrentAccount().addFruit(tmp)) {

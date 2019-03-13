@@ -7,22 +7,20 @@ import com.project2.model.AccountsFacade;
 import com.project2.model.CurrentAccountManager;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.ResourceBundle;
-import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-import javax.faces.view.ViewScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import javax.faces.model.SelectItem;
-import javax.inject.Inject;
+import javax.faces.convert.*;
+import javax.faces.model.*;
+
+/***
+ * This class handles the communication between the user and the database
+ * when creating an account and logging in/out.
+ * @author rackarmattan
+ */
 
 @Named("accountsController")
 @RequestScoped
@@ -59,6 +57,11 @@ public class AccountsController implements Serializable {
         return "/accounts/Login?faces-redirect=true";
     }
 
+    /***
+     * This method verifies if the user exists and if she has
+     * written the correct password for that specific account.
+     * @return redirections to start page or null
+     */
     public String login() {
         Accounts tmp = ejbFacade.findByLogin(getCurrent().getLogin());
         if (tmp != null) {
@@ -125,6 +128,12 @@ public class AccountsController implements Serializable {
         return "Create";
     }
 
+    /***
+     * Creates an new account acording to the input from the user,
+     * if there is no account with the requested login, the user is redirected
+     * to the start page.
+     * @return redirection for start page or null
+     */
     public String createAndLogin() {
         try {
             getFacade().create(getCurrent());
@@ -134,7 +143,7 @@ public class AccountsController implements Serializable {
             return "Startpage.xhtml?faces-redirect=true";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return "Create.xhtml?faces-redirect=true";
+            return null;
         }
     }
 

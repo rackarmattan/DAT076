@@ -15,9 +15,11 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
+
 /**
- *
- * @author rackarmattan Controller class for editing accounts info
+ * This class handles the communication between the user and the database
+ * when the user wants to edit its information.
+ * @author rackarmattan
  */
 @Named("editAccountController")
 @SessionScoped
@@ -57,25 +59,24 @@ public class EditAccountController implements Serializable {
         current.setCurrentAccount(account);
     }
 
+    /***
+     * Checks if a user with the requested login exists, checks if the password
+     * is shorter than three, and if the checks is passed the user's password
+     * is changed.
+     */
     public void checkPasswordChange() {
-        //Try to get a user by the entered name.
         Accounts tmp = ejbFacade.findByLogin(tmpLogin);
-
         if (tmpPassword.length() < 3) {
             JsfUtil.addErrorMessage("Password must be at least 3 characters long.");
-        }
-        //Checks if the user exists. 
-        else if (tmp != null) {
+        } else if (tmp != null) {
             tmp.setPassword(tmpPassword);
             ejbFacade.edit(tmp);
             JsfUtil.addSuccessMessage("Password changed for: " + tmpLogin);
-        } //Not a vaild name - send error msg. 
-         else {
+        } else {
             JsfUtil.addErrorMessage("Invaild user name, please try again.");
         }
     }
 
-    //Supposed to be called by commandbutton if user wants to update its own info
     public void updateAccountInfo() {
         ejbFacade.edit(getCurrent());
     }
