@@ -59,7 +59,7 @@ button {
 
 .divframe{
     width: 30%;
-    height: 450px;
+    height: auto;
     border:2px
     solid #D3D3D3
 }
