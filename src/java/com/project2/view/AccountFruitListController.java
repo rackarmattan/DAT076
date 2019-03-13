@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project2.view;
 
 import com.project2.model.Accounts;
@@ -11,15 +6,11 @@ import com.project2.model.CurrentAccountManager;
 import com.project2.model.Fruits;
 import com.project2.model.FruitsFacade;
 import com.project2.view.util.JsfUtil;
-import com.project2.view.util.PaginationHelper;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
 import javax.inject.Named;
 
 /***

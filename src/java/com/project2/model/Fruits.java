@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project2.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,7 +15,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Entity class for fruits.
  * @author rackarmattan
  */
 @Entity
@@ -31,9 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Fruits.findAll", query = "SELECT f FROM Fruits f")
     , @NamedQuery(name = "Fruits.findByFname", query = "SELECT f FROM Fruits f WHERE f.fname = :fname")
-    , @NamedQuery(name = "Fruits.findByColor", query = "SELECT f FROM Fruits f WHERE f.color = :color")
-   // , @NamedQuery(name="Fruits.findByLogin", query= "SELECT f FROM Fruits f WHERE " + "f.acounts IN (SELECT ac FROM Accounts ac WHERE ac.login =:login")
-})
+    , @NamedQuery(name = "Fruits.findByColor", query = "SELECT f FROM Fruits f WHERE f.color = :color")})
 public class Fruits implements Serializable {
 
     private static final long serialVersionUID = 1L;

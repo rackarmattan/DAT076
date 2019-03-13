@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project2.view;
 
 import com.project2.model.Accounts;
@@ -10,11 +5,9 @@ import com.project2.model.AccountsFacade;
 import com.project2.model.CurrentAccountManager;
 import com.project2.view.util.JsfUtil;
 import java.io.Serializable;
-import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-
 
 /**
  * This class handles the communication between the user and the database

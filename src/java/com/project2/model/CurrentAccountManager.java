@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project2.model;
 
 /**
- *
+ * Singleton class for keeping track of which user is the user that
+ * is logged in and if a user is logged in.
  * @author rackarmattan
  */
 public class CurrentAccountManager {

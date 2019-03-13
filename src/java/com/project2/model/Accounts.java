@@ -1,21 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.project2.model;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -23,7 +15,7 @@ import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
+ * Entity class for Account.
  * @author rackarmattan
  */
 @Entity
