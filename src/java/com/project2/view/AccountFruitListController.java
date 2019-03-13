@@ -49,6 +49,7 @@ public class AccountFruitListController implements Serializable {
      * it's added.
      * @param fruitName 
      */
+    
     public void markAsFavourite(String fruitName) {
         Fruits tmp = fruitFacade.findByFname(fruitName);
         if (tmp != null && getCurrentAccount().addFruit(tmp)) {
