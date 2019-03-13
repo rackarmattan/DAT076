@@ -11,28 +11,14 @@
         </ui:define> -->
     
      <h:head>
-         <h:outputStylesheet library = "css" name="jsfcrud.css"/>
+        <title> Title </title>
+        <h:outputStylesheet name="css/createFruits.css"/>
     </h:head>
     
-    <h:body id="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.CreateFruitsLabel_fname}" for="fname" />
-                    <h:inputText id="fname" value="#{fruitsController.selected.fname}" title="#{bundle.CreateFruitsTitle_fname}" required="true" requiredMessage="#{bundle.CreateFruitsRequiredMessage_fname}"/>
-                    <h:outputLabel value="#{bundle.CreateFruitsLabel_color}" for="color" />
-                    <h:inputText id="color" value="#{fruitsController.selected.color}" title="#{bundle.CreateFruitsTitle_color}" required="true" requiredMessage="#{bundle.CreateFruitsRequiredMessage_color}"/>
-                </h:panelGrid>
-                <br />
-                <h:commandLink action="#{fruitsController.create}" value="#{bundle.CreateFruitsSaveLink}" />
-                <br />
-                <br />
-                <h:commandLink action="#{fruitsController.prepareList}" value="#{bundle.CreateFruitsShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.CreateFruitsIndexLink}"/>
-            </h:form>
-       </h:body>
+    <body>
+        <ui:include src ="../template.xhtml"></ui:include>
+        <br/>
+        <h1>Create New Fruit</h1>
+       
+    </body>
     </ui:composition>

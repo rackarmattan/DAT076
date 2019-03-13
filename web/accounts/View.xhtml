@@ -13,6 +13,7 @@
     <body>
         <ui:include src ="../template.xhtml"></ui:include>
         <br/>
+        <h1>Account Details</h1>
         <div style="width:400px;height:400px;border:2px solid #D3D3D3">
             <br/>
             <label for="login"><b>Username</b></label>
@@ -23,6 +24,7 @@
             <label for="login"><b>Password</b></label>
             <h:form>
                 <h:inputText id="login" value="#{accountsController.current.password}"/>
+                <h:commandButton id="changepassword" value="Change password"/>
             </h:form>        
             <br/>  
             <label for="login"><b>Email</b></label>
