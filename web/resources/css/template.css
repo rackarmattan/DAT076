@@ -24,7 +24,7 @@ h:commandLink {
     font-size: 17px;
 }
 
-#nameText{
+.nameText{
     float: right;
     color: #f2f2f2;
     text-align: center;
