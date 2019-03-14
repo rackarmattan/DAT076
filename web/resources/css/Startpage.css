@@ -11,6 +11,7 @@ and open the template in the editor.
   box-sizing: border-box;
 }
 
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -40,9 +41,13 @@ body {
   padding: 16px;
   text-align: center;
   line-height: 350%;
-  font-size: 300%;
+  font-size: 250%;
   background-color: #f1f1f1;
   height: 200px;
+}
+
+.listlink{
+    text-decoration: inherit;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
