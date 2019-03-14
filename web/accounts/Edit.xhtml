@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"/>
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -16,13 +15,26 @@
             <h:form>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="#{bundle.EditAccountsLabel_login}" for="login" />
-                    <h:inputText id="login" value="#{accountsController.selected.login}" title="#{bundle.EditAccountsTitle_login}" required="true" requiredMessage="#{bundle.EditAccountsRequiredMessage_login}"/>
+                    <h:inputText id="login" value="#{accountsController.selected.login}" 
+                                 title="#{bundle.EditAccountsTitle_login}" required="true" 
+                                 requiredMessage="#{bundle.EditAccountsRequiredMessage_login}"/>
+                   
                     <h:outputLabel value="#{bundle.EditAccountsLabel_password}" for="password" />
-                    <h:inputText id="password" value="#{accountsController.selected.password}" title="#{bundle.EditAccountsTitle_password}" required="true" requiredMessage="#{bundle.EditAccountsRequiredMessage_password}"/>
+                    <h:inputText id="password" 
+                                 value="#{accountsController.selected.password}" 
+                                 title="#{bundle.EditAccountsTitle_password}"
+                                 required="true" 
+                                 requiredMessage="#{bundle.EditAccountsRequiredMessage_password}"/>
+                   
                     <h:outputLabel value="#{bundle.EditAccountsLabel_email}" for="email" />
-                    <h:inputText id="email" value="#{accountsController.selected.email}" title="#{bundle.EditAccountsTitle_email}" />
+                    <h:inputText id="email" 
+                                 value="#{accountsController.selected.email}" 
+                                 title="#{bundle.EditAccountsTitle_email}" />
+                    
                     <h:outputLabel value="#{bundle.EditAccountsLabel_about}" for="about" />
-                    <h:inputText id="about" value="#{accountsController.selected.about}" title="#{bundle.EditAccountsTitle_about}" />
+                    <h:inputText id="about" 
+                                 value="#{accountsController.selected.about}" 
+                                 title="#{bundle.EditAccountsTitle_about}" />
                 </h:panelGrid>
                 <h:commandLink action="#{accountsController.update}" value="#{bundle.EditAccountsSaveLink}"/>
                 <br />
