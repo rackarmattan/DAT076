@@ -6,8 +6,6 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
 
-
-
     <h:head>
         <h:outputStylesheet name="css/FruitsList.css"/>
     </h:head>
@@ -24,11 +22,18 @@
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
-            <h:outputText escape="false" value="#{bundle.ListFruitsEmpty}" rendered="#{fruitsController.items.rowCount == 0}"/>
+            <h:outputText escape="false" value="#{bundle.ListFruitsEmpty}" 
+                          rendered="#{fruitsController.items.rowCount == 0}"/>
             <h:panelGroup rendered="#{fruitsController.items.rowCount > 0}">
-                <h:outputText value="#{fruitsController.pagination.pageFirstItem + 1}..#{fruitsController.pagination.pageLastItem + 1}/#{fruitsController.pagination.itemsCount}"/>&nbsp;
-                <h:commandLink action="#{fruitsController.previous}" value="#{bundle.Previous} #{fruitsController.pagination.pageSize}" rendered="#{fruitsController.pagination.hasPreviousPage}"/>&nbsp;
-                <h:commandLink action="#{fruitsController.next}" value="#{bundle.Next} #{fruitsController.pagination.pageSize}" rendered="#{fruitsController.pagination.hasNextPage}"/>&nbsp;
+                <h:outputText value="#{fruitsController.pagination.pageFirstItem + 1}..
+                              #{fruitsController.pagination.pageLastItem + 1}/
+                              #{fruitsController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{fruitsController.previous}" 
+                               value="#{bundle.Previous} #{fruitsController.pagination.pageSize}" 
+                               rendered="#{fruitsController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{fruitsController.next}" 
+                               value="#{bundle.Next} #{fruitsController.pagination.pageSize}" 
+                               rendered="#{fruitsController.pagination.hasNextPage}"/>&nbsp;
                 <h:dataTable styleClass ="dataTable" value="#{fruitsController.items}" 
                              var="item" border="0" 
                              cellpadding="2" 
@@ -54,15 +59,18 @@
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>
                         </f:facet>
-                        <h:commandLink action="#{fruitsController.prepareView}" value="#{bundle.ListFruitsViewLink}"/>
+                        <h:commandLink action="#{fruitsController.prepareView}" 
+                                       value="#{bundle.ListFruitsViewLink}"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{fruitsController.prepareEdit}" value="#{bundle.ListFruitsEditLink}"/>
+                        <h:commandLink action="#{fruitsController.prepareEdit}" 
+                                       value="#{bundle.ListFruitsEditLink}"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{fruitsController.destroy}" value="#{bundle.ListFruitsDestroyLink}"/>
+                        <h:commandLink action="#{fruitsController.destroy}" 
+                                       value="#{bundle.ListFruitsDestroyLink}"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{aflController.markAsFavourite(item.fname)}" value="Set favourite" />
+                        <h:commandLink action="#{aflController.markAsFavourite(item.fname)}" 
+                                       value="Set favourite" />
                     </h:column>
-
                 </h:dataTable>
             </h:panelGroup>
             <h:commandButton class='createButton' 
