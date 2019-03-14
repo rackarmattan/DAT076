@@ -23,7 +23,9 @@ body {
 }
 
 /* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
+.row {
+    margin: 0 -5px;
+}
 
 /* Clear floats after the columns */
 .row:after {
@@ -37,7 +39,10 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
   padding: 16px;
   text-align: center;
+  line-height: 350%;
+  font-size: 300%;
   background-color: #f1f1f1;
+  height: 200px;
 }
 
 /* Responsive columns - one column layout (vertical) on small screens */
