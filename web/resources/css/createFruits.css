@@ -4,18 +4,13 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 2019-mar-07, 14:43:54
+    Created on : 2019-mar-13, 10:31:04
     Author     : linneabark
 */
 
 body {font-family: Arial, Helvetica, sans-serif;}
 
 
-/* Bordered form */
-.formis {
-  border: 3px solid #f1f1f1;
-  padding: 8px 8px 8px 8px; 
-}
 
 /* Full-width inputs */
 input[type=text], input[type=password] {
@@ -28,15 +23,18 @@ input[type=text], input[type=password] {
 }
 
 form{
-    width:95%;
     padding-left: 10px;
     padding-right: 10px;
 }
 
-label{
+textInput{
     padding-left: 10px;
+    font-weight: bold;
+
 }
 
+
+/* Set a style for all buttons */
 button {
   background-color: #4CAF50;
   color: white;
@@ -52,9 +50,20 @@ button {
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
-  margin-left: 10px;
   background-color: #f44336;
+  margin-left: 10px;
   font-weight: bold
+}
+
+/* Extra style for the add button (green) */
+.addbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #228B22;  
+  /*margin-left: 240px; */
+    float: right;  
+    margin-right: 10px;
+
 }
 
 .divframe{
@@ -64,3 +73,19 @@ button {
     solid #D3D3D3
 }
 
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 60%;
+  border-radius: 50%;
+}
+
+/* Add padding to containers */
+.container {
+  padding: 10px;
+}
