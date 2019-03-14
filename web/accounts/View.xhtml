@@ -10,8 +10,10 @@
         <h:outputStylesheet name="css/accountDetails.css"/>
     </h:head>
     
-    <body>
+    <h:body id="mainFix">
+       
         <ui:include src ="../template.xhtml"></ui:include>
+        
         <h1>Account Details</h1>
         <div class="divframe">
             <label for="login"><b>Username</b></label>
@@ -39,5 +41,6 @@
             
         </div>
         <h:link outcome="/accounts/Startpage?faces-redirect=true" value="Cancel" class="cancelbtn"/>
-    </body>
+        
+    </h:body>
 </html>
