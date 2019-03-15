@@ -7,7 +7,7 @@
     <h:head>
         <h:outputStylesheet library = "css" name="ResetPassword.css"/> 
     </h:head>
-     <ui:include src ="../template.xhtml"></ui:include>
+    <ui:include src ="../template.xhtml"></ui:include>
     <h:outputText id="title" value="Your fruits"/>
 
     <h:body>
@@ -17,6 +17,11 @@
             </p:column>
             <p:column headerText="Colour">
                 <h:outputText value="#{fruit.color}"/>
+            </p:column>
+            <p:column>
+                <h:form>
+                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" value="Delete from list" />
+                </h:form>
             </p:column>
         </p:dataTable>
     </h:body>
