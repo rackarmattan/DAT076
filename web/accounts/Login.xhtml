@@ -13,7 +13,6 @@ and open the template in the editor.
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
     <h:head>
         <title>Login</title>
-        <!-- <h:outputStylesheet name="css/jsfcrud.css"/> -->
         <h:outputStylesheet library = "css" name="Login.css"/>
     </h:head>
     <ui:include src ="../template.xhtml"></ui:include>
@@ -48,12 +47,6 @@ and open the template in the editor.
                     <h:link value="Cancel" outcome="/index?faces-redirect=true" styleClass="cancelbtn"/>
                     <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
             </h:form>
-<!--
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn" action="#{StartPage.xhtml}">Cancel</button>
-                <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
-            </div>
--->
         </div>    
     </h:body>
 </ui:composition> 

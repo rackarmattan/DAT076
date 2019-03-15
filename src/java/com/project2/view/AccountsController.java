@@ -16,12 +16,13 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.*;
 import javax.faces.model.*;
 
-/***
- * This class handles the communication between the user and the database
- * when creating an account and logging in/out.
+/**
+ * *
+ * This class handles the communication between the user and the database when
+ * creating an account and logging in/out.
+ *
  * @author rackarmattan
  */
-
 @Named("accountsController")
 @RequestScoped
 public class AccountsController implements Serializable {
@@ -57,9 +58,11 @@ public class AccountsController implements Serializable {
         return "/accounts/Login?faces-redirect=true";
     }
 
-    /***
-     * This method verifies if the user exists and if she has
-     * written the correct password for that specific account.
+    /**
+     * *
+     * This method verifies if the user exists and if she has written the
+     * correct password for that specific account.
+     *
      * @return redirections to start page or null
      */
     public String login() {
@@ -71,8 +74,9 @@ public class AccountsController implements Serializable {
                 return "/accounts/Startpage?faces-redirect=true";
             }
             JsfUtil.addErrorMessage("Wrong password!");
+        } else {
+            JsfUtil.addErrorMessage("An account with that login doesn't exist.");
         }
-        JsfUtil.addErrorMessage("An account with that login doesn't exist.");
         return null;
     }
 
@@ -128,10 +132,12 @@ public class AccountsController implements Serializable {
         return "Create";
     }
 
-    /***
-     * Creates an new account acording to the input from the user,
-     * if there is no account with the requested login, the user is redirected
-     * to the start page.
+    /**
+     * *
+     * Creates an new account acording to the input from the user, if there is
+     * no account with the requested login, the user is redirected to the start
+     * page.
+     *
      * @return redirection for start page or null
      */
     public String createAndLogin() {
