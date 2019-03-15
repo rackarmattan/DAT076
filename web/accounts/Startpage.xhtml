@@ -24,13 +24,18 @@
                     </h:form>
                 </div>
             </div>
+
             <div class="column">
-                <div class="card">View all fruits</div>
-                <h:form>
-                    <h:commandLink action="#{fruitsController.prepareList()}" value="Test" />
-                </h:form>
-            </div>
-        </div>  
+                <div class="card">
+                    <h:form>
+                        <h:commandLink styleClass="listlink"
+                                       action="#{fruitsController.prepareList()}" 
+                                       value="View all fruits" />
+                    </h:form>
+
+                </div>
+            </div>  
+        </div> 
         <br/>
 
         <div class="row">
