@@ -20,14 +20,8 @@
                 <div class="column">
                     <div class="card">
                         <h:form>
-<!--
-
-                            <h:link outcome="/accounts/MyList?faces-redirect=true" value="My list"/>
--->
                             <h:link styleClass="listlink" outcome="/accounts/MyList?faces-redirect=true" value="My list"/>
-                            <!--<h:commandLink action="#{aflController.showFruitList()}" value="My lists"/>
-                                                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
--->
+                 
                         </h:form>
                     </div>
                 </div>
@@ -41,11 +35,9 @@
         <br/>
 
         <div class="row">
-<!--            <h:link outcome="/fruits/Create?faces-redirect=true"> -->
             <h:link styleClass="listlink" outcome="/fruits/Create">
                 <div class="column">
                     <div class="card">Create New Fruits
-                        <!--<img src="../resources/images/add-icon.png" width="50" height="30"/> -->
                     </div>
                 </div>
             </h:link>
