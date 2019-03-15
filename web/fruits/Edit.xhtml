@@ -4,12 +4,12 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <h:outputStylesheet name="css/FruitsList.css"/>
+       <h:outputStylesheet name="css/FruitDetails.css"/> 
     </h:head>
 
     <ui:include src ="../template.xhtml"></ui:include>
 
-    <h:body>
+    <h:body class="form">
         <h:panelGroup id="messagePanel" layout="block">
             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
         </h:panelGroup>
@@ -29,11 +29,13 @@
                              required="true" 
                              requiredMessage="#{bundle.EditFruitsRequiredMessage_color}"/>
             </h:panelGrid>
-            <h:commandLink action="#{fruitsController.update}" 
+            <h:commandButton styleClass="save" 
+                           action="#{fruitsController.update}" 
                            value="#{bundle.EditFruitsSaveLink}"/>
  
             <br />
-            <h:commandLink action="#{fruitsController.prepareList}" 
+            <h:commandButton class="return"
+                           action="#{fruitsController.prepareList}" 
                            value="#{bundle.EditFruitsShowAllLink}" 
                            immediate="true"/>
         </h:form>
