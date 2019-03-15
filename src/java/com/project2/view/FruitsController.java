@@ -73,7 +73,7 @@ public class FruitsController implements Serializable {
 
     public String prepareList() {
         recreateModel();
-        return "List";
+        return "/fruits/List?faces-redirect=true";
     }
 
     public String prepareView() {
