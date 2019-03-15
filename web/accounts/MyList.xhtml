@@ -7,10 +7,10 @@
     <h:head>
         <h:outputStylesheet library = "css" name="ResetPassword.css"/> 
     </h:head>
-     <ui:include src ="../template.xhtml"></ui:include>
-    <h:outputText id="title" value="Your fruits"/>
+    <ui:include src ="../template.xhtml"></ui:include>
 
     <h:body>
+        <h1>Your fruits</h1>
         <p:dataTable value="#{aflController.showFruitList()}" var="fruit">
             <p:column headerText="Name">
                 <h:outputText value="#{fruit.fname}"/>                
@@ -18,17 +18,16 @@
             <p:column headerText="Colour">
                 <h:outputText value="#{fruit.color}"/>
             </p:column>
-            <p:column headerText="Destroy">
+            <p:column>
                 <h:form>
-                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" 
-                                       value="Set favourite" />
+                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" value="Delete from list" />
                 </h:form>
             </p:column>
         </p:dataTable>
         <h:form>
-                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" 
-                                       value="Set favourite" />
-                </h:form>
+            <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" value="Set favourite" />
+        </h:form>
+        <h:link outcome="/accounts/Startpage?faces-redirect=true" value="Cancel" class="cancelbtn"/>
     </h:body>
 </ui:composition>
 
