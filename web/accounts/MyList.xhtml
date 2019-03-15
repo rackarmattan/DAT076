@@ -20,11 +20,15 @@
             </p:column>
             <p:column headerText="Destroy">
                 <h:form>
-                <h:commandLink action="#{aflController.markAsFavourite(item.fname)}" 
+                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" 
                                        value="Set favourite" />
                 </h:form>
             </p:column>
         </p:dataTable>
+        <h:form>
+                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" 
+                                       value="Set favourite" />
+                </h:form>
     </h:body>
 </ui:composition>
 
