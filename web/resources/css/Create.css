@@ -58,12 +58,6 @@ button {
   font-weight: bold
 }
 
-/* Center the avatar image inside this container */
-.imgcontainer {
-  text-align: center;
-  margin: 24px 0 12px 0;
-}
-
 .loginAccount{
   background-color: #4CAF50;
   color: white;
@@ -73,12 +67,6 @@ button {
   cursor: pointer;
   width: 100%;
   font-weight: bold
-}
-
-/* Avatar image */
-img.avatar {
-  width: 20%;
-  border-radius: 50%;
 }
 
 /* Add padding to containers */
