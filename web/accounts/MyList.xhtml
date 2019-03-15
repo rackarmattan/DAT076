@@ -18,6 +18,12 @@
             <p:column headerText="Colour">
                 <h:outputText value="#{fruit.color}"/>
             </p:column>
+            <p:column headerText="Destroy">
+                <h:form>
+                <h:commandLink action="#{aflController.markAsFavourite(item.fname)}" 
+                                       value="Set favourite" />
+                </h:form>
+            </p:column>
         </p:dataTable>
     </h:body>
 </ui:composition>
