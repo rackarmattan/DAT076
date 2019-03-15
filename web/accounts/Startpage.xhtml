@@ -7,23 +7,23 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
 
     <h:head>
-        <title> Your startpage </title>
+        <title>Your startpage</title>
         <h:outputStylesheet name="css/Startpage.css"/>
     </h:head>
 
     <h:body>
         <ui:include src ="../template.xhtml"></ui:include>
         <br/>
-
         <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <h:form>
-                            <h:link styleClass="listlink" outcome="/accounts/MyList?faces-redirect=true" value="My list"/>
-                 
-                        </h:form>
-                    </div>
+            <div class="column">
+                <div class="card">
+                    <h:form>
+                        <h:link styleClass="listlink" 
+                                outcome="/accounts/MyList?faces-redirect=true" 
+                                value="My list"/>
+                    </h:form>
                 </div>
+            </div>
 
             <h:link styleClass="listlink" outcome="/fruits/List">
                 <div class="column">
@@ -36,21 +36,16 @@
         <div class="row">
             <h:link styleClass="listlink" outcome="/fruits/Create">
                 <div class="column">
-                    <div class="card">Create New Fruits
-                    </div>
+                    <div class="card">Create New Fruits</div>
                 </div>
             </h:link>
 
             <h:link styleClass="listlink" outcome="/accounts/View">
                 <div class="column">
-                    <div class="card">Account Details
-                    </div>
+                    <div class="card">Account Details</div>
                 </div>
             </h:link>
         </div>
-        <div>
-        </div>
-
     </h:body>
 </ui:composition>
 

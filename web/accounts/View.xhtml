@@ -2,48 +2,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-     <h:head>
-        <title> Title </title>
+    <h:head>
+        <title>Title</title>
         <h:outputStylesheet name="css/accountDetails.css"/>
     </h:head>
-    
-    <h:body id="mainFix">
-       
-        <ui:include src ="../template.xhtml"></ui:include>
-        
+
+    <ui:include src ="../template.xhtml"></ui:include>
+    <h:body id="mainFix"> 
         <h1>Account Details</h1>
         <div class="divframe">
             <label for="login"><b>Username</b></label>   
             <div class="textframe">
-                    <h:outputLabel value="#{accountsController.current.login}"/>  
-            </div>
-            
+                <h:outputLabel value="#{accountsController.current.login}"/> </div>
             <br/>  
             <label for="login"><b>Password</b></label>
             <div class="textframe">
-                    <h:outputLabel value="#{accountsController.current.password}"/>  
-            </div> 
-            
+                <h:outputLabel value="#{accountsController.current.password}"/></div> 
             <br/>  
-            
             <label for="login"><b>Email</b></label>
-
-            <div class="textframe">
-                    <h:outputLabel value="#{accountsController.current.email}"/>  
-            </div>
-            
+            <div class="textframe"> 
+                <h:outputLabel value="#{accountsController.current.email}"/></div>
             <br/>
-           
             <label for="login"><b>About</b></label>
-<div class="textframe">
-                    <h:outputLabel value="#{accountsController.current.about}"/>  
-            </div>
-            
+            <div class="textframe">
+                <h:outputLabel value="#{accountsController.current.about}"/></div>
         </div>
-        <h:link outcome="/accounts/Startpage?faces-redirect=true" value="Cancel" class="cancelbtn"/>
-        
+        <h:link outcome="/accounts/Startpage?faces-redirect=true" 
+                value="Cancel" 
+                class="cancelbtn"/>
     </h:body>
 </html>
