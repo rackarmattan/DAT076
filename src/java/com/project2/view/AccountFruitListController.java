@@ -68,6 +68,8 @@ public class AccountFruitListController implements Serializable {
     public void deleteFavourite(String fruitName){
         Fruits tmp = fruitFacade.findByFname(fruitName);
         if(tmp != null && getCurrentAccount().removeFruit(tmp)){
+            accountFacade.edit(getCurrentAccount());
+            fruitFacade.edit(tmp);
             JsfUtil.addSuccessMessage(fruitName + " successfully deleted.");
         }
         else{
