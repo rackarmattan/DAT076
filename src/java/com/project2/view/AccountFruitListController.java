@@ -61,6 +61,10 @@ public class AccountFruitListController implements Serializable {
         }
     }
     
+    /***
+     * Takes fruit name and dletes it from the current account's list.
+     * @param fruitName 
+     */
     public void deleteFavourite(String fruitName){
         Fruits tmp = fruitFacade.findByFname(fruitName);
         if(tmp != null && getCurrentAccount().removeFruit(tmp)){
