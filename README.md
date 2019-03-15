@@ -2,6 +2,9 @@
 Web development project in the course DAT076. A webpage that allows registered users to create lists of fruits. 
 Only the users imagination sets the limit. 
 
+### Location of Report 
+The report is loc
+
 ## File Structure 
 This project consists of the following main parts: 
 * A database 
