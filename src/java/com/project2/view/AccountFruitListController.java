@@ -60,5 +60,19 @@ public class AccountFruitListController implements Serializable {
             JsfUtil.addErrorMessage("That fruit is already in your favourite list.");
         }
     }
+    
+    /***
+     * Takes fruit name and dletes it from the current account's list.
+     * @param fruitName 
+     */
+    public void deleteFavourite(String fruitName){
+        Fruits tmp = fruitFacade.findByFname(fruitName);
+        if(tmp != null && getCurrentAccount().removeFruit(tmp)){
+            JsfUtil.addSuccessMessage(fruitName + " successfully deleted.");
+        }
+        else{
+            JsfUtil.addErrorMessage("Something went wrong when deleting fruit: " + fruitName);
+        }
+    }
 
 }
