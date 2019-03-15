@@ -28,7 +28,7 @@
                 <h:commandLink action="#{fruitsController.next}" 
                                value="#{bundle.Next} #{fruitsController.pagination.pageSize}" 
                                rendered="#{fruitsController.pagination.hasNextPage}"/>&nbsp;
-              
+
                 <h:dataTable styleClass ="dataTable" value="#{fruitsController.items}" 
                              var="item" border="0" 
                              cellpadding="2" 

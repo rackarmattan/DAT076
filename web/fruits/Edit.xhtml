@@ -2,8 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <ui:composition template="/template.xhtml">
         <ui:define name="title">
@@ -18,13 +17,15 @@
                     <h:outputLabel value="#{bundle.EditFruitsLabel_fname}" for="fname" />
                     <h:inputText id="fname" 
                                  value="#{fruitsController.selected.fname}" 
-                                 title="#{bundle.EditFruitsTitle_fname}" required="true" 
+                                 title="#{bundle.EditFruitsTitle_fname}" 
+                                 required="true" 
                                  requiredMessage="#{bundle.EditFruitsRequiredMessage_fname}"/>
                     <h:outputLabel value="#{bundle.EditFruitsLabel_color}" for="color" />
 
                     <h:inputText id="color" 
                                  value="#{fruitsController.selected.color}" 
-                                 title="#{bundle.EditFruitsTitle_color}" required="true" 
+                                 title="#{bundle.EditFruitsTitle_color}" 
+                                 required="true" 
                                  requiredMessage="#{bundle.EditFruitsRequiredMessage_color}"/>
                 </h:panelGrid>
                 <h:commandLink action="#{fruitsController.update}" 
