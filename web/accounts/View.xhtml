@@ -26,14 +26,12 @@
             <label for="login"><b>Email</b></label>
             <div class="textframe"> 
                 <h:outputLabel value="#{accountsController.current.email}"/></div>
-
             <br/>
             <label for="login"><b>About</b></label>
             <div class="textframe">
-                <h:outputLabel value="#{accountsController.current.about}"/></div>
+                <h:outputLabel value="#{accountsController.current.about}"/>
+            </div>
         </div>
-        <h:link outcome="/accounts/Startpage?faces-redirect=true" 
-                value="Cancel" 
-                class="cancelbtn"/>
+        <h:link outcome="/accounts/Startpage?faces-redirect=true" value="Cancel" class="cancelbtn"/>
     </h:body>
 </html>
