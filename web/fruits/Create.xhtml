@@ -4,64 +4,29 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-     <h:head>
-        <title> Title </title>
-        <h:outputStylesheet name="css/createFruits.css"/>
-    </h:head>
-    
-    <body>
-        <ui:include src ="../template.xhtml"></ui:include>
-        <h1>Create New Fruit</h1>
-        <div class="divframe">
-        <br/>
-        <textInput>Name</textInput>
-        <h:form>
-            <h:inputText id="login"/>
-        </h:form>
-        <textInput>Color</textInput>
-        <h:form>
-            <h:inputText id="login"/>
-        </h:form>
-            <div class="container">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <button type="button" class="addbtn">Add</button>
-            </div>
-        </div>
-        <div class="imgcontainer">
-            <img src="../resources/images/fruits-vegetables.jpg" alt="Avatar" class="avatar" />
-        </div> 
-    </body>
-    </ui:composition>
-
-<!---
-
     <h:head>
-        <h:outputStylesheet library = "css" name="jsfcrud.css"/>
+        <h:outputStylesheet library = "css" name="createFruits.css"/>
     </h:head>
 
     <ui:include src ="../template.xhtml"></ui:include>
-
 
     <h:body id="body">
         <h:panelGroup id="messagePanel" layout="block">
             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
         </h:panelGroup>
         <h:form>
-            <h:panelGrid columns="2">
-                <h:outputLabel value="#{bundle.CreateFruitsLabel_fname}" for="fname" />
-                <h:inputText id="fname" value="#{fruitsController.selected.fname}" title="#{bundle.CreateFruitsTitle_fname}" required="true" requiredMessage="#{bundle.CreateFruitsRequiredMessage_fname}"/>
-                <h:outputLabel value="#{bundle.CreateFruitsLabel_color}" for="color" />
-                <h:inputText id="color" value="#{fruitsController.selected.color}" title="#{bundle.CreateFruitsTitle_color}" required="true" requiredMessage="#{bundle.CreateFruitsRequiredMessage_color}"/>
-            </h:panelGrid>
-            <br />
-            <h:commandLink action="#{fruitsController.create}" value="#{bundle.CreateFruitsSaveLink}" />
-            <br />
-            <br />
-            <h:commandLink action="#{fruitsController.prepareList}" value="#{bundle.CreateFruitsShowAllLink}" immediate="true"/>
-            <br />
-            <br />
-            <h:link outcome="/index" value="#{bundle.CreateFruitsIndexLink}"/>
+            <h1> Create New Fruit </h1>
+            <div class="divframe">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Name:" /> 
+                    <h:inputText id="fname" value="#{fruitsController.selected.fname}" title="#{bundle.CreateFruitsTitle_fname}" required="true" requiredMessage="#{bundle.CreateFruitsRequiredMessage_fname}"/>
+                    <h:outputLabel value="Color:"/>
+                    <h:inputText id="color" value="#{fruitsController.selected.color}" title="#{bundle.CreateFruitsTitle_color}" required="true" requiredMessage="#{bundle.CreateFruitsRequiredMessage_color}"/>                
+
+                    <h:link outcome="/accounts/Startpage?faces-redirect=true" value="Cancel" class="cancelbtn"/>
+                    <h:commandLink action="#{fruitsController.create}" value="#{bundle.CreateFruitsSaveLink}" class="addbtn"/>
+                </h:panelGrid>
+            </div>
         </h:form>
     </h:body>
 </ui:composition>
--->
