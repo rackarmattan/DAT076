@@ -7,22 +7,9 @@
    color: #4CAF50; 
 }
 
-/* Center the avatar image inside this container */
-
 video {
   width: 100%;
   height: auto
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-    display: block;
-    float: none;
-  }
-  .cancelbtn {
-    width: 100%;
-  }
 }
 
 h1{
@@ -34,4 +21,15 @@ h1{
     top:0;
     color: white;
     padding: 6% 8% 0% 5%; 
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }

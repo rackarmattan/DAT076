@@ -7,8 +7,8 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
 
     <h:head>
-        <title> Title </title>
-        <h:outputStylesheet name="css/startPage.css"/>
+        <title> Your startpage </title>
+        <h:outputStylesheet name="css/Startpage.css"/>
     </h:head>
 
     <h:body>
@@ -20,11 +20,8 @@
                 <div class="column">
                     <div class="card">
                         <h:form>
-<!---
+
                             <h:link outcome="/accounts/MyList?faces-redirect=true" value="My list"/>
--->
-                            <h:commandLink action="#{aflController.showFruitList()}" value="My lists"/>
-                                                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
 
                         </h:form>
                     </div>
@@ -39,7 +36,7 @@
         <br/>
 
         <div class="row">
-            <h:link outcome="/fruits/Create">
+            <h:link outcome="/fruits/Create?faces-redirect=true">
                 <div class="column">
                     <div class="card">Create New Fruits
                         <!--<img src="../resources/images/add-icon.png" width="50" height="30"/> -->

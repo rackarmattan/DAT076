@@ -13,13 +13,10 @@ and open the template in the editor.
     xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">  
     <h:head>
         <title>Login</title>
-        <!-- <h:outputStylesheet name="css/jsfcrud.css"/> -->
         <h:outputStylesheet library = "css" name="Login.css"/>
     </h:head>
     <ui:include src ="../template.xhtml"></ui:include>
     <h:body>    
-        <br />
-        <h:link outcome="/accounts/List" value="Show All Accounts Items"/>
         <div class="container">
             <div class="imgcontainer">
                 <img src="../resources/images/genericLogo.png" alt="Avatar" class="avatar" />
@@ -33,12 +30,12 @@ and open the template in the editor.
                                value="#{accountsController.current.password}"/>
 
                 <div  name="actionButtons">
-                    <h:commandButton class="loginAccount" 
+                    <h:commandButton class="forwardButton" 
                                      value="Login" 
                                      type="submit" 
                                      action="#{accountsController.login()}">
                     </h:commandButton>
-                    <h:commandButton class="loginAccount" 
+                    <h:commandButton class="forwardButton" 
                                      value="Create account" 
                                      type="submit" 
                                      action="#{accountsController.prepareCreate()}">
@@ -50,12 +47,6 @@ and open the template in the editor.
                     <h:link value="Cancel" outcome="/index?faces-redirect=true" styleClass="cancelbtn"/>
                     <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
             </h:form>
-<!--
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn" action="#{StartPage.xhtml}">Cancel</button>
-                <span class="psw">Forgot <a href="ResetPas.xhtml">password?</a></span>
-            </div>
--->
         </div>    
     </h:body>
 </ui:composition> 
