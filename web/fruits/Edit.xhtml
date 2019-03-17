@@ -4,39 +4,40 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-       <h:outputStylesheet name="css/FruitDetails.css"/> 
+       <h:outputStylesheet name="css/EditFruit.css"/> 
     </h:head>
 
     <ui:include src ="../template.xhtml"></ui:include>
 
+    <h1> Edit fruit #{fruitsController.selected.fname} </h1>
     <h:body class="form">
         <h:panelGroup id="messagePanel" layout="block">
             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
         </h:panelGroup>
-        <h:form>
+        <h:form styleClass="fruitInformation">
             <h:panelGrid columns="2">
-                <h:outputLabel value="#{bundle.EditFruitsLabel_fname}" for="fname" />
+                <h:outputLabel value="Name" for="fname" />
                 <h:inputText id="fname" 
                              value="#{fruitsController.selected.fname}" 
-                             title="#{bundle.EditFruitsTitle_fname}" 
+                             title="Name" 
                              required="true" 
                              requiredMessage="#{bundle.EditFruitsRequiredMessage_fname}"/>
-                <h:outputLabel value="#{bundle.EditFruitsLabel_color}" for="color" />
+                <h:outputLabel value="Color" for="color" />
 
                 <h:inputText id="color" 
                              value="#{fruitsController.selected.color}" 
-                             title="#{bundle.EditFruitsTitle_color}" 
+                             title="Color" 
                              required="true" 
                              requiredMessage="#{bundle.EditFruitsRequiredMessage_color}"/>
             </h:panelGrid>
-            <h:commandButton styleClass="save" 
+            <h:commandButton class="save" 
                            action="#{fruitsController.update}" 
-                           value="#{bundle.EditFruitsSaveLink}"/>
+                           value="Save"/>
  
             <br />
             <h:commandButton class="return"
                            action="#{fruitsController.prepareList}" 
-                           value="#{bundle.EditFruitsShowAllLink}" 
+                           value="Cancel" 
                            immediate="true"/>
         </h:form>
     </h:body>

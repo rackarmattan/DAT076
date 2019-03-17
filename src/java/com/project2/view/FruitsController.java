@@ -20,12 +20,13 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 
-/***
- * This class handles the communication between the user and the database
- * when the user wants to create, delete, edit or display fruits.
+/**
+ * *
+ * This class handles the communication between the user and the database when
+ * the user wants to create, delete, edit or display fruits.
+ *
  * @author rackarmattan
  */
-
 @Named("fruitsController")
 @SessionScoped
 public class FruitsController implements Serializable {
@@ -87,7 +88,7 @@ public class FruitsController implements Serializable {
         selectedItemIndex = -1;
         return "Create";
     }
-    
+
     public Accounts getCurrent() {
         return currentAccount.getCurrentAccount();
     }
@@ -113,9 +114,10 @@ public class FruitsController implements Serializable {
         try {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("FruitsUpdated"));
-            return "View";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+        }
+        finally{
             return null;
         }
     }
@@ -172,7 +174,7 @@ public class FruitsController implements Serializable {
             items = getPagination().createPageDataModel();
         }
         return items;
-       
+
     }
 
     private void recreateModel() {
