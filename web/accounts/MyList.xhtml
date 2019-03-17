@@ -3,24 +3,33 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
     <h:head>
-        <h:outputStylesheet library = "css" name="ResetPassword.css"/> 
+        <h:outputStylesheet library = "css" name="MyList.css"/> 
     </h:head>
     <ui:include src ="../template.xhtml"></ui:include>
 
     <h:body>
         <h1>Your fruits</h1>
-        <p:dataTable value="#{aflController.showFruitList()}" var="fruit">
-            <p:column headerText="Name">
-                <h:outputText value="#{fruit.fname}"/>                
+        <p:dataTable styleClass="borderless" value="#{aflController.showFruitList()}" var="fruit">
+            <p:column styleClass="outputHeader">
+                <f:facet name="header">
+                    <h:outputText value="Name"/>
+                </f:facet>
+                <h:outputText value="#{fruit.fname}"/> 
             </p:column>
-            <p:column headerText="Colour">
+            <p:column styleClass="outputHeader">
+                <f:facet name="header">
+                    <h:outputText value="Color"/>
+                </f:facet>
                 <h:outputText value="#{fruit.color}"/>
             </p:column>
             <p:column>
                 <h:form>
-                    <h:commandLink action="#{aflController.deleteFavourite(fruit.fname)}" value="Delete from list" />
+                    <h:commandLink styleClass="delete" action="#{aflController.deleteFavourite(fruit.fname)}" value="Delete from list" />
                 </h:form>
             </p:column>
         </p:dataTable>

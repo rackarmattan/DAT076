@@ -19,7 +19,6 @@ import javax.inject.Named;
  * @author rackarmattan
  */
 
-
 @Named("aflController")
 @SessionScoped
 public class AccountFruitListController implements Serializable {

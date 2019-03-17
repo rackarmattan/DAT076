@@ -54,13 +54,13 @@
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>
                         </f:facet>
-                        <h:commandLink action="#{fruitsController.prepareEdit}" 
+                        <h:commandLink styleClass="listlink" action="#{fruitsController.prepareEdit}" 
                                        value="#{bundle.ListFruitsEditLink}"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{fruitsController.destroy}" 
-                                       value="#{bundle.ListFruitsDestroyLink}"/>
+                        <h:commandLink styleClass="listlink" action="#{fruitsController.destroy}" 
+                                       value="Delete"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{aflController.markAsFavourite(item.fname)}" 
+                        <h:commandLink styleClass="listlink" action="#{aflController.markAsFavourite(item.fname)}" 
                                        value="Set favourite" />
                     </h:column>
                 </h:dataTable>

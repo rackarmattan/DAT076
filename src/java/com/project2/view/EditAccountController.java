@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-/**
+/***
  * This class handles the communication between the user and the database
  * when the user wants to edit its information.
  * @author rackarmattan

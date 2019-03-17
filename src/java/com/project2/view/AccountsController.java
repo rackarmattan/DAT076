@@ -16,8 +16,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.*;
 import javax.faces.model.*;
 
-/**
- * *
+/***
  * This class handles the communication between the user and the database when
  * creating an account and logging in/out.
  *
@@ -153,69 +152,6 @@ public class AccountsController implements Serializable {
         }
     }
 
-    /*
-    public String prepareEdit() {
-        current = (Accounts) getItems().getRowData();
-        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
-        return "Edit";
-    }
-
-    public String update() {
-        try {
-            getFacade().edit(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsUpdated"));
-            return "View";
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-            return null;
-        }
-    }
-
-    public String destroy() {
-        current = (Accounts) getItems().getRowData();
-        selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
-        performDestroy();
-        recreatePagination();
-        recreateModel();
-        return "List";
-    }
-
-    public String destroyAndView() {
-        performDestroy();
-        recreateModel();
-        updateCurrentItem();
-        if (selectedItemIndex >= 0) {
-            return "View";
-        } else {
-            // all items were removed - go back to list
-            recreateModel();
-            return "List";
-        }
-    }
-
-    private void performDestroy() {
-        try {
-            getFacade().remove(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("AccountsDeleted"));
-        } catch (Exception e) {
-            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
-        }
-    }
-
-    private void updateCurrentItem() {
-        int count = getFacade().count();
-        if (selectedItemIndex >= count) {
-            // selected index cannot be bigger than number of items:
-            selectedItemIndex = count - 1;
-            // go to previous page if last page disappeared:
-            if (pagination.getPageFirstItem() >= count) {
-                pagination.previousPage();
-            }
-        }
-        if (selectedItemIndex >= 0) {
-            current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
-        }
-    }*/
     public DataModel getItems() {
         if (items == null) {
             items = getPagination().createPageDataModel();
